@@ -26,7 +26,13 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/home', fn () => Inertia::render('Home/Home'));
 Route::get('/products', fn () => Inertia::render('Products/Products'))->name('products.index');
-Route::get('/about-us', fn () => Inertia::render('AboutUs/AboutUs'))->name('products.index');
-Route::get('/company-profile', fn () => Inertia::render('CompanyProfile/CompanyProfile'))->name('products.index');
+Route::get('/products/table', fn () => Inertia::render('Products/ProductsTable'))->name('products.table');
+Route::get('/about-us', fn () => Inertia::render('AboutUs/AboutUs'))->name('about-us');
+Route::get('/company-profile', fn () => Inertia::render('CompanyProfile/CompanyProfile'))->name('company-profile');
+Route::get('/contact', fn () => Inertia::render('Contact/Contact'))->name('contact');
+Route::get('/articles', fn () => Inertia::render('Articles/Articles'))->name('articles.index');
+Route::get('/articles/table', fn () => Inertia::render('Articles/ArticlesTable'))->name('articles.table');
+Route::get('/events', fn () => Inertia::render('Events/Events'))->name('events.index');
+Route::get('/events/table', fn () => Inertia::render('Events/EventsTable'))->name('events.table');
 
 require __DIR__.'/auth.php';
