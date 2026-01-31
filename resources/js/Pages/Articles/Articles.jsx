@@ -1,172 +1,207 @@
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head, Link } from "@inertiajs/react";
-
-export default function ArticleUser({ articles }) {
-    // Sample data jika tidak ada props
-    const sampleArticles = articles || [
-        {
-            id: 1,
-            title: "Introducing Our New Smart Watch Series",
-            excerpt: "Discover the latest innovation in wearable technology with advanced health tracking features, sleep monitoring, and seamless smartphone integration.",
-            category: "Electronics",
-            author: "Admin",
-            published_date: "2024-01-25",
-            image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"
-        },
-        {
-            id: 2,
-            title: "5 Tips Memilih Laptop yang Tepat untuk Kebutuhan Anda",
-            excerpt: "Panduan lengkap memilih laptop sesuai budget dan kebutuhan kerja atau gaming. Pelajari spesifikasi yang penting dan cara mendapatkan value terbaik.",
-            category: "Electronics",
-            author: "Admin",
-            published_date: "2024-01-23",
-            image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400"
-        },
-        {
-            id: 3,
-            title: "Tren Fashion 2024: Koleksi Baju Terbaru",
-            excerpt: "Simak koleksi fashion terbaru kami yang mengikuti tren internasional. Dapatkan inspirasi gaya untuk tampil percaya diri setiap hari.",
-            category: "Fashion",
-            author: "Admin",
-            published_date: "2024-01-20",
-            image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=400"
-        },
-        {
-            id: 4,
-            title: "Review Headphone Premium dengan Noise Cancelling",
-            excerpt: "Pengalaman mendengarkan musik yang lebih berkualitas dengan teknologi noise cancelling terbaru. Nikmati audio jernih tanpa gangguan.",
-            category: "Electronics",
-            author: "Admin",
-            published_date: "2024-01-18",
-            image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"
-        },
-        {
-            id: 5,
-            title: "Panduan Perawatan Sepatu Sneakers Agar Awet",
-            excerpt: "Tips dan trik merawat sepatu sneakers kesayangan agar tetap terlihat baru dan tahan lama. Investasi yang tepat untuk koleksi Anda.",
-            category: "Fashion",
-            author: "Admin",
-            published_date: "2024-01-15",
-            image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"
-        },
-        {
-            id: 6,
-            title: "Smartphone Gaming Terbaik di 2024",
-            excerpt: "Review lengkap smartphone dengan performa gaming terbaik. Spesifikasi, harga, dan rekomendasi untuk para mobile gamers.",
-            category: "Electronics",
-            author: "Admin",
-            published_date: "2024-01-12",
-            image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400"
-        }
-    ];
-
-    return (
-        <AuthenticatedLayout>
-            <Head title="Articles" />
-
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    {/* Header */}
-                    <div className="mb-8">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                            Latest Articles
-                        </h2>
-                        <p className="text-gray-600">
-                            Discover tips, reviews, and insights about our products
-                        </p>
-                    </div>
-
-                    {/* Filter Categories */}
-                    <div className="mb-8 flex gap-3">
-                        <button className="px-4 py-2 bg-gray-800 text-white rounded-md text-sm">
-                            All
-                        </button>
-                        <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-md text-sm hover:bg-gray-50">
-                            Electronics
-                        </button>
-                        <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-md text-sm hover:bg-gray-50">
-                            Fashion
-                        </button>
-                        <button className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-md text-sm hover:bg-gray-50">
-                            Lifestyle
-                        </button>
-                    </div>
-
-                    {/* Articles Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {sampleArticles.map((article) => (
-                            <div
-                                key={article.id}
-                                className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition duration-150"
-                            >
-                                {/* Image */}
-                                <div className="h-48 bg-gray-200 overflow-hidden">
-                                    <img
-                                        src={article.image}
-                                        alt={article.title}
-                                        className="w-full h-full object-cover hover:scale-105 transition duration-300"
-                                    />
-                                </div>
-
-                                {/* Content */}
-                                <div className="p-5">
-                                    {/* Category & Date */}
-                                    <div className="flex items-center justify-between mb-3">
-                                        <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
-                                            {article.category}
-                                        </span>
-                                        <span className="text-xs text-gray-500">
-                                            {new Date(article.published_date).toLocaleDateString('id-ID', {
-                                                day: 'numeric',
-                                                month: 'short',
-                                                year: 'numeric'
-                                            })}
-                                        </span>
-                                    </div>
-
-                                    {/* Title */}
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
-                                        {article.title}
-                                    </h3>
-
-                                    {/* Excerpt */}
-                                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                                        {article.excerpt}
-                                    </p>
-
-                                    {/* Read More */}
-                                    <Link
-                                        href={`/articles/${article.id}`}
-                                        className="inline-flex items-center text-sm font-medium text-gray-800 hover:text-gray-600"
-                                    >
-                                        Read More
-                                        <svg
-                                            className="ml-1 w-4 h-4"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                d="M9 5l7 7-7 7"
-                                            />
-                                        </svg>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Load More Button */}
-                    <div className="mt-10 text-center">
-                        <button className="px-6 py-3 bg-white border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition duration-150">
-                            Load More Articles
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </AuthenticatedLayout>
-    );
-}
+ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+ import { Head, Link } from "@inertiajs/react";
+ 
+ export default function ArticleUser({ articles }) {
+     // Sample data jika tidak ada props
+     const sampleArticles = articles || [
+         {
+             id: 1,
+             title: "Panduan Lengkap Merawat Anak Anjing Pertama Anda",
+             excerpt: "Tips penting untuk pet parents baru! Pelajari cara merawat puppy mulai dari makanan, vaksinasi, toilet training, hingga sosialisasi yang tepat untuk tumbuh kembang optimal.",
+             category: "Anjing",
+             author: "Dr. Sarah Wijaya",
+             published_date: "2024-01-25",
+             image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400"
+         },
+         {
+             id: 2,
+             title: "5 Makanan yang Berbahaya untuk Kucing Kesayangan",
+             excerpt: "Kenali makanan yang toxic untuk kucing! Artikel ini membahas daftar lengkap makanan yang harus dihindari dan alternatif snack sehat untuk si meong.",
+             category: "Kucing",
+             author: "Dr. Sarah Wijaya",
+             published_date: "2024-01-23",
+             image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400"
+         },
+         {
+             id: 3,
+             title: "Cara Melatih Burung Peliharaan Agar Bisa Berbicara",
+             excerpt: "Panduan step-by-step melatih burung peliharaan untuk meniru suara dan kata-kata. Teknik yang terbukti efektif dan tips dari para ahli.",
+             category: "Burung",
+             author: "Budi Santoso",
+             published_date: "2024-01-20",
+             image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400"
+         },
+         {
+             id: 4,
+             title: "Review: 10 Dry Food Anjing Terbaik untuk Berbagai Ras",
+             excerpt: "Perbandingan lengkap brand dry food premium untuk anjing. Dari puppy hingga senior, temukan makanan terbaik sesuai kebutuhan nutrisi anjing Anda.",
+             category: "Anjing",
+             author: "Linda Kusuma",
+             published_date: "2024-01-18",
+             image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400"
+         },
+         {
+             id: 5,
+             title: "Tanda-Tanda Kucing Anda Stress dan Cara Mengatasinya",
+             excerpt: "Pelajari bahasa tubuh kucing untuk mendeteksi stress sejak dini. Solusi praktis menciptakan lingkungan yang nyaman dan menenangkan untuk si kucing.",
+             category: "Kucing",
+             author: "Dr. Sarah Wijaya",
+             published_date: "2024-01-15",
+             image: "https://images.unsplash.com/photo-1573865526739-10c1dd66bc0e?w=400"
+         },
+         {
+             id: 6,
+             title: "Setup Aquarium untuk Pemula: Panduan Praktis",
+             excerpt: "Mulai hobi memelihara ikan hias dengan benar! Panduan memilih aquarium, filter, dekorasi, dan jenis ikan yang cocok untuk pemula.",
+             category: "Ikan",
+             author: "Budi Santoso",
+             published_date: "2024-01-12",
+             image: "https://images.unsplash.com/photo-1520990142052-1c211d1f648f?w=400"
+         }
+     ];
+ 
+     // Category colors mapping
+     const categoryColors = {
+         "Anjing": "bg-orange-100 text-orange-800",
+         "Kucing": "bg-pink-100 text-pink-800",
+         "Burung": "bg-blue-100 text-blue-800",
+         "Ikan": "bg-cyan-100 text-cyan-800",
+         "Reptil": "bg-green-100 text-green-800",
+         "Tips": "bg-purple-100 text-purple-800"
+     };
+ 
+     return (
+         <AuthenticatedLayout>
+             <Head title="Articles" />
+ 
+             <div className="py-12 bg-gradient-to-b from-orange-50 to-white">
+                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                     {/* Header */}
+                     <div className="mb-8 text-center">
+                         <h2 className="text-4xl font-bold text-gray-900 mb-3">
+                             🐾 Pet Care Articles
+                         </h2>
+                         <p className="text-gray-600 text-lg">
+                             Tips, panduan, dan informasi terkini untuk merawat hewan kesayangan Anda
+                         </p>
+                     </div>
+ 
+                     {/* Filter Categories */}
+                     <div className="mb-8 flex gap-3 flex-wrap justify-center">
+                         <button className="px-5 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition">
+                             Semua
+                         </button>
+                         <button className="px-5 py-2 bg-white border-2 border-orange-300 text-orange-600 rounded-full text-sm font-semibold hover:bg-orange-50 transition">
+                             🐕 Anjing
+                         </button>
+                         <button className="px-5 py-2 bg-white border-2 border-pink-300 text-pink-600 rounded-full text-sm font-semibold hover:bg-pink-50 transition">
+                             🐱 Kucing
+                         </button>
+                         <button className="px-5 py-2 bg-white border-2 border-blue-300 text-blue-600 rounded-full text-sm font-semibold hover:bg-blue-50 transition">
+                             🐦 Burung
+                         </button>
+                         <button className="px-5 py-2 bg-white border-2 border-cyan-300 text-cyan-600 rounded-full text-sm font-semibold hover:bg-cyan-50 transition">
+                             🐠 Ikan
+                         </button>
+                     </div>
+ 
+                     {/* Articles Grid */}
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                         {sampleArticles.map((article) => (
+                             <div
+                                 key={article.id}
+                                 className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1"
+                             >
+                                 {/* Image */}
+                                 <div className="h-48 bg-gray-200 overflow-hidden relative">
+                                     <img
+                                         src={article.image}
+                                         alt={article.title}
+                                         className="w-full h-full object-cover hover:scale-110 transition duration-500"
+                                     />
+                                     {/* Category Badge on Image */}
+                                     <div className="absolute top-3 left-3">
+                                         <span className={`px-3 py-1 ${categoryColors[article.category] || 'bg-gray-100 text-gray-800'} text-xs font-bold rounded-full shadow-sm`}>
+                                             {article.category}
+                                         </span>
+                                     </div>
+                                 </div>
+ 
+                                 {/* Content */}
+                                 <div className="p-5">
+                                     {/* Author & Date */}
+                                     <div className="flex items-center justify-between mb-3 text-xs text-gray-500">
+                                         <span className="flex items-center gap-1">
+                                             👤 {article.author}
+                                         </span>
+                                         <span className="flex items-center gap-1">
+                                             📅 {new Date(article.published_date).toLocaleDateString('id-ID', {
+                                                 day: 'numeric',
+                                                 month: 'short',
+                                                 year: 'numeric'
+                                             })}
+                                         </span>
+                                     </div>
+ 
+                                     {/* Title */}
+                                     <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 hover:text-orange-600 transition">
+                                         {article.title}
+                                     </h3>
+ 
+                                     {/* Excerpt */}
+                                     <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
+                                         {article.excerpt}
+                                     </p>
+ 
+                                     {/* Read More */}
+                                     <Link
+                                         href={`/articles/${article.id}`}
+                                         className="inline-flex items-center text-sm font-semibold text-orange-600 hover:text-pink-600 transition"
+                                     >
+                                         Baca Selengkapnya
+                                         <svg
+                                             className="ml-1 w-4 h-4"
+                                             fill="none"
+                                             stroke="currentColor"
+                                             viewBox="0 0 24 24"
+                                         >
+                                             <path
+                                                 strokeLinecap="round"
+                                                 strokeLinejoin="round"
+                                                 strokeWidth="2"
+                                                 d="M9 5l7 7-7 7"
+                                             />
+                                         </svg>
+                                     </Link>
+                                 </div>
+                             </div>
+                         ))}
+                     </div>
+ 
+                     {/* Load More Button */}
+                     <div className="mt-12 text-center">
+                         <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:from-orange-600 hover:to-pink-600 transition duration-300">
+                             Muat Artikel Lainnya 🐾
+                         </button>
+                     </div>
+ 
+                     {/* Newsletter CTA */}
+                     <div className="mt-12 bg-gradient-to-r from-orange-400 to-pink-500 rounded-xl shadow-lg p-8 text-center text-white">
+                         <h3 className="text-2xl font-bold mb-3">📧 Subscribe Newsletter Kami!</h3>
+                         <p className="mb-5">Dapatkan tips perawatan hewan dan artikel terbaru langsung ke email Anda</p>
+                         <div className="flex gap-3 max-w-md mx-auto">
+                             <input
+                                 type="email"
+                                 placeholder="Email Anda"
+                                 className="flex-1 px-4 py-2 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
+                             />
+                             <button className="px-6 py-2 bg-white text-orange-600 rounded-full font-semibold hover:bg-orange-50 transition">
+                                 Subscribe
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </AuthenticatedLayout>
+     );
+ }

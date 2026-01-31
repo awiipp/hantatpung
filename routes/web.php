@@ -34,5 +34,8 @@ Route::get('/articles', fn () => Inertia::render('Articles/Articles'))->name('ar
 Route::get('/articles/table', fn () => Inertia::render('Articles/ArticlesTable'))->name('articles.table');
 Route::get('/events', fn () => Inertia::render('Events/Events'))->name('events.index');
 Route::get('/events/table', fn () => Inertia::render('Events/EventsTable'))->name('events.table');
+Route::get('/galleries', fn () => Inertia::render('Galleries/Galleries'))->name('galleries.index');
+Route::get('/clients', fn () => Inertia::render('Clients/Clients'))->name('clients.index');
+Route::get('/clients/table', fn () => Inertia::render('Clients/ClientsTable'))->name('clients.table');
 
 require __DIR__.'/auth.php';

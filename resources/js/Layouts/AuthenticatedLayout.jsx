@@ -13,15 +13,22 @@ export default function AuthenticatedLayout({ header, children }) {
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <nav className="border-b border-gray-100 bg-white">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="flex h-16 justify-between">
-                        <div className="flex">
-                            <div className="flex shrink-0 items-center">
-                                <h1 className="font-bold text-xl">
-                                    Hancommerce
-                                </h1>
-                            </div>
+                    <nav className="border-b border-gray-100 bg-white">
+                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                            <div className="flex h-16 justify-between">
+                                <div className="flex">
+                                    <div className="flex shrink-0 items-center">
+                                        {/* Logo Image */}
+                                        <img
+                                            src="/images/kkeomchiz.jpeg"
+                                            alt="Pawscommerce Logo"
+                                            className="w-10 h-10 rounded-lg mr-3 object-cover"
+                                        />
+                                        {/* Brand Name */}
+                                        <h1 className="font-bold text-xl text-gray-900">
+                                            Pawscommerce
+                                        </h1>
+                                    </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
@@ -212,7 +219,7 @@ export default function AuthenticatedLayout({ header, children }) {
 
                     <nav className="px-8 py-5 space-y-4 flex flex-col">
                         <NavLink
-                            href={route("articles.index")}
+                            href={user ? route("articles.table") : route("articles.index")}
                             active={route().current("articles.*")}
                         >
                             Article
@@ -226,15 +233,15 @@ export default function AuthenticatedLayout({ header, children }) {
                         </NavLink>
 
                         <NavLink
-                            href={route("dashboard")}
-                            active={route().current("dashboard")}
+                            href={route("galleries.index")}
+                            active={route().current("galleries.*")}
                         >
                             Galleries
                         </NavLink>
 
                         <NavLink
-                            href={route("dashboard")}
-                            active={route().current("dashboard")}
+                            href={route("clients.index")}
+                            active={route().current("clients.*")}
                         >
                             Clients
                         </NavLink>
