@@ -13,7 +13,7 @@
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                  </svg>
              ),
-             change: '+12%'
+             
          },
          { 
              label: 'Appointments', 
@@ -24,7 +24,7 @@
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                  </svg>
              ),
-             change: '+8%'
+             
          },
          { 
              label: 'Products Sold', 
@@ -35,7 +35,7 @@
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                  </svg>
              ),
-             change: '+23%'
+             
          },
          { 
              label: 'Happy Clients', 
@@ -46,7 +46,7 @@
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                  </svg>
              ),
-             change: '+15%'
+              
          },
      ];
  
@@ -57,7 +57,7 @@
              category: 'Food',
              price: 'Rp 250.000', 
              stock: 45,
-             image: '🍖'
+             image: '/images/makanan-anjing.jpeg'
          },
          { 
              id: 2, 
@@ -65,7 +65,7 @@
              category: 'Supplies',
              price: 'Rp 150.000', 
              stock: 32,
-             image: '🐱'
+             image: ''
          },
          { 
              id: 3, 
@@ -73,7 +73,7 @@
              category: 'Accessories',
              price: 'Rp 350.000', 
              stock: 18,
-             image: '🎒'
+             image: ''
          },
          { 
              id: 4, 
@@ -81,7 +81,7 @@
              category: 'Toys',
              price: 'Rp 125.000', 
              stock: 56,
-             image: '🎾'
+             image: ''
          },
      ];
  
@@ -93,7 +93,7 @@
              owner: 'John Doe',
              time: '10:00 AM',
              status: 'Confirmed',
-             petType: '🐕'
+             petType: ''
          },
          { 
              id: 2, 
@@ -102,7 +102,7 @@
              owner: 'Jane Smith',
              time: '11:30 AM',
              status: 'In Progress',
-             petType: '🐈'
+             petType: ''
          },
          { 
              id: 3, 
@@ -111,15 +111,15 @@
              owner: 'Mike Johnson',
              time: '02:00 PM',
              status: 'Waiting',
-             petType: '🐕'
+             petType: ''
          },
      ];
  
      const petCategories = [
-         { name: 'Dogs', count: 156, icon: '🐕', color: 'bg-amber-100 text-amber-800' },
-         { name: 'Cats', count: 134, icon: '🐈', color: 'bg-purple-100 text-purple-800' },
-         { name: 'Birds', count: 28, icon: '🦜', color: 'bg-sky-100 text-sky-800' },
-         { name: 'Fish', count: 24, icon: '🐠', color: 'bg-blue-100 text-blue-800' },
+         { name: 'Dogs', count: 156, icon: '', color: 'bg-amber-100 text-amber-800' },
+         { name: 'Cats', count: 134, icon: '', color: 'bg-purple-100 text-purple-800' },
+         { name: 'Birds', count: 28, icon: '', color: 'bg-sky-100 text-sky-800' },
+         { name: 'Fish', count: 24, icon: '', color: 'bg-blue-100 text-blue-800' },
      ];
  
      const upcomingEvents = [
@@ -164,7 +164,7 @@
              header={
                  <div className="flex items-center justify-between">
                      <h2 className="text-xl font-semibold leading-tight text-gray-800 flex items-center gap-2">
-                         <span>🐾</span> Pet Shop Dashboard
+                         <span></span> Pet Shop Dashboard
                      </h2>
                      <div className="text-sm text-gray-600">
                          {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
@@ -187,9 +187,7 @@
                                      <div className={`w-14 h-14 ${stat.color} rounded-xl flex items-center justify-center shadow-lg`}>
                                          {stat.icon}
                                      </div>
-                                     <span className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded-full">
-                                         {stat.change}
-                                     </span>
+                                
                                  </div>
                                  <p className="text-sm text-gray-600 mb-1">{stat.label}</p>
                                  <h3 className="text-3xl font-bold text-gray-900">{stat.value}</h3>
@@ -200,7 +198,7 @@
                      {/* Pet Categories */}
                      <div className="bg-white rounded-xl shadow-md p-6 mb-8">
                          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                             <span>🏪</span> Pet Categories
+                             <span></span> Pet Categories
                          </h3>
                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                              {petCategories.map((category, index) => (
@@ -222,7 +220,7 @@
                          <div className="bg-white rounded-xl shadow-md p-6">
                              <div className="flex items-center justify-between mb-4">
                                  <h3 className="text-lg font-semibold flex items-center gap-2">
-                                     <span>🛍️</span> Top Selling Products
+                                     <span></span> Top Selling Products
                                  </h3>
                                  <button className="text-sm text-blue-600 hover:text-blue-800 font-medium">
                                      View All →
@@ -235,7 +233,6 @@
                                          className="flex items-center justify-between p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border border-gray-100 hover:border-gray-300 transition"
                                      >
                                          <div className="flex items-center gap-3">
-                                             <div className="text-3xl">{product.image}</div>
                                              <div>
                                                  <p className="font-semibold text-gray-900">{product.name}</p>
                                                  <p className="text-xs text-gray-500">{product.category}</p>
@@ -252,7 +249,7 @@
                          <div className="bg-white rounded-xl shadow-md p-6">
                              <div className="flex items-center justify-between mb-4">
                                  <h3 className="text-lg font-semibold flex items-center gap-2">
-                                     <span>📅</span> Today's Appointments
+                                     <span></span> Today's Appointments
                                  </h3>
                                  <button className="text-sm text-blue-600 hover:text-blue-800 font-medium">
                                      View All →
@@ -291,7 +288,7 @@
                      {/* Upcoming Events */}
                      <div className="bg-white rounded-xl shadow-md p-6 mb-8">
                          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                             <span>🎉</span> Upcoming Events
+                             <span></span> Upcoming Events
                          </h3>
                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                              {upcomingEvents.map((event) => (

@@ -79,7 +79,7 @@
                      {/* Header */}
                      <div className="mb-8 text-center">
                          <h2 className="text-4xl font-bold text-gray-900 mb-3">
-                             🐾 Pet Care Articles
+                              Pet Care Articles
                          </h2>
                          <p className="text-gray-600 text-lg">
                              Tips, panduan, dan informasi terkini untuk merawat hewan kesayangan Anda
@@ -92,16 +92,16 @@
                              Semua
                          </button>
                          <button className="px-5 py-2 bg-white border-2 border-orange-300 text-orange-600 rounded-full text-sm font-semibold hover:bg-orange-50 transition">
-                             🐕 Anjing
+                              Anjing
                          </button>
                          <button className="px-5 py-2 bg-white border-2 border-pink-300 text-pink-600 rounded-full text-sm font-semibold hover:bg-pink-50 transition">
-                             🐱 Kucing
+                              Kucing
                          </button>
                          <button className="px-5 py-2 bg-white border-2 border-blue-300 text-blue-600 rounded-full text-sm font-semibold hover:bg-blue-50 transition">
-                             🐦 Burung
+                              Burung
                          </button>
                          <button className="px-5 py-2 bg-white border-2 border-cyan-300 text-cyan-600 rounded-full text-sm font-semibold hover:bg-cyan-50 transition">
-                             🐠 Ikan
+                              Ikan
                          </button>
                      </div>
  
@@ -132,10 +132,10 @@
                                      {/* Author & Date */}
                                      <div className="flex items-center justify-between mb-3 text-xs text-gray-500">
                                          <span className="flex items-center gap-1">
-                                             👤 {article.author}
+                                              {article.author}
                                          </span>
                                          <span className="flex items-center gap-1">
-                                             📅 {new Date(article.published_date).toLocaleDateString('id-ID', {
+                                              {new Date(article.published_date).toLocaleDateString('id-ID', {
                                                  day: 'numeric',
                                                  month: 'short',
                                                  year: 'numeric'
@@ -181,13 +181,13 @@
                      {/* Load More Button */}
                      <div className="mt-12 text-center">
                          <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:from-orange-600 hover:to-pink-600 transition duration-300">
-                             Muat Artikel Lainnya 🐾
+                             Muat Artikel Lainnya 
                          </button>
                      </div>
  
                      {/* Newsletter CTA */}
                      <div className="mt-12 bg-gradient-to-r from-orange-400 to-pink-500 rounded-xl shadow-lg p-8 text-center text-white">
-                         <h3 className="text-2xl font-bold mb-3">📧 Subscribe Newsletter Kami!</h3>
+                         <h3 className="text-2xl font-bold mb-3">Hubungi Kami!</h3>
                          <p className="mb-5">Dapatkan tips perawatan hewan dan artikel terbaru langsung ke email Anda</p>
                          <div className="flex gap-3 max-w-md mx-auto">
                              <input

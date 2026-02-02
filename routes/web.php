@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -24,9 +25,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/table', [ProductController::class, 'table'])->name('products.table');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+
 Route::get('/home', fn () => Inertia::render('Home/Home'));
-Route::get('/products', fn () => Inertia::render('Products/Products'))->name('products.index');
-Route::get('/products/table', fn () => Inertia::render('Products/ProductsTable'))->name('products.table');
 Route::get('/about-us', fn () => Inertia::render('AboutUs/AboutUs'))->name('about-us');
 Route::get('/company-profile', fn () => Inertia::render('CompanyProfile/CompanyProfile'))->name('company-profile');
 Route::get('/contact', fn () => Inertia::render('Contact/Contact'))->name('contact');
@@ -37,5 +40,6 @@ Route::get('/events/table', fn () => Inertia::render('Events/EventsTable'))->nam
 Route::get('/galleries', fn () => Inertia::render('Galleries/Galleries'))->name('galleries.index');
 Route::get('/clients', fn () => Inertia::render('Clients/Clients'))->name('clients.index');
 Route::get('/clients/table', fn () => Inertia::render('Clients/ClientsTable'))->name('clients.table');
+Route::get('/articles/create', fn () => Inertia::render('Articles/ArticlesCreate'))->name('articles.create');
 
 require __DIR__.'/auth.php';

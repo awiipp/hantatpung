@@ -14,7 +14,7 @@
              date: '2024-01-15',
              images: 45,
              image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800',
-             photographer: 'Dr. Sarah Wijaya'
+             photographer: 'Han Taesan S.TP'
          },
          { 
              id: 2, 
@@ -23,7 +23,7 @@
              date: '2024-01-20',
              images: 32,
              image: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=800',
-             photographer: 'Budi Santoso'
+             photographer: 'Dr Kim Leehan'
          },
          { 
              id: 3, 
@@ -32,7 +32,7 @@
              date: '2024-02-01',
              images: 28,
              image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800',
-             photographer: 'Linda Kusuma'
+             photographer: 'Woonhak'
          },
          { 
              id: 4, 
@@ -41,7 +41,7 @@
              date: '2024-02-10',
              images: 38,
              image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800',
-             photographer: 'Dr. Sarah Wijaya'
+             photographer: 'Han Taesan S.TP'
          },
          { 
              id: 5, 
@@ -50,7 +50,7 @@
              date: '2024-02-15',
              images: 52,
              image: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800',
-             photographer: 'Linda Kusuma'
+             photographer: 'Woonhak'
          },
          { 
              id: 6, 
@@ -59,7 +59,7 @@
              date: '2024-02-20',
              images: 40,
              image: 'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=800',
-             photographer: 'Budi Santoso'
+             photographer: 'Dr Kim Leehan'
          },
          { 
              id: 7, 
@@ -68,7 +68,7 @@
              date: '2024-03-01',
              images: 35,
              image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=800',
-             photographer: 'Dr. Sarah Wijaya'
+             photographer: 'Han Taesan S.TP'
          },
          { 
              id: 8, 
@@ -77,7 +77,7 @@
              date: '2024-03-05',
              images: 42,
              image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800',
-             photographer: 'Linda Kusuma'
+             photographer: 'Woonhak'
          },
      ];
  
@@ -98,12 +98,37 @@
  
              {/* Hero Section */}
              <div className="bg-gradient-to-r from-orange-400 to-pink-500 text-white py-16 text-center">
-                 <h1 className="text-4xl font-bold mb-3">📸 Galeri Foto</h1>
+                 <h1 className="text-4xl font-bold mb-3">Galeri Foto</h1>
                  <p className="text-xl">Momen-momen indah bersama hewan kesayangan</p>
              </div>
  
              <div className="py-12 bg-gradient-to-b from-orange-50 to-white">
                  <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                     {/* Stats Section */}
+                     <div className="mt-12 bg-white rounded-xl shadow-lg p-8 mb-14">
+                         <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">Statistik Galeri</h3>
+                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                             <div className="text-center bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl">
+                                 <div className="text-4xl font-bold text-orange-600 mb-2">{galleries.length}</div>
+                                 <p className="text-sm text-gray-700 font-medium">Total Galeri</p>
+                             </div>
+                             <div className="text-center bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl">
+                                 <div className="text-4xl font-bold text-pink-600 mb-2">
+                                     {galleries.reduce((sum, g) => sum + g.images, 0)}
+                                 </div>
+                                 <p className="text-sm text-gray-700 font-medium">Total Foto</p>
+                             </div>
+                             <div className="text-center bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+                                 <div className="text-4xl font-bold text-blue-600 mb-2">8</div>
+                                 <p className="text-sm text-gray-700 font-medium">Kategori</p>
+                             </div>
+                             <div className="text-center bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+                                 <div className="text-4xl font-bold text-green-600 mb-2">2024</div>
+                                 <p className="text-sm text-gray-700 font-medium">Update Terbaru</p>
+                             </div>
+                         </div>
+                     </div>
+
                      {/* Header */}
                      <div className="mb-8 text-center">
                          <h2 className="text-3xl font-bold text-gray-900 mb-2">
@@ -116,11 +141,11 @@
  
                      {/* Filters */}
                      <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                         <div className="grid grid-cols-1 gap-6">
                              {/* Category Filter */}
                              <div>
                                  <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
-                                     <span>🏷️</span> Kategori
+                                      Kategori
                                  </label>
                                  <div className="flex flex-wrap gap-2">
                                      {categories.map((category) => (
@@ -139,40 +164,7 @@
                                  </div>
                              </div>
  
-                             {/* View Mode Toggle */}
-                             <div>
-                                 <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
-                                     <span>👁️</span> Tampilan
-                                 </label>
-                                 <div className="flex gap-2">
-                                     <button
-                                         onClick={() => setViewMode('grid')}
-                                         className={`px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2 ${
-                                             viewMode === 'grid'
-                                                 ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-md'
-                                                 : 'bg-orange-100 text-orange-700 hover:bg-orange-200'
-                                         }`}
-                                     >
-                                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                             <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                                         </svg>
-                                         Grid
-                                     </button>
-                                     <button
-                                         onClick={() => setViewMode('masonry')}
-                                         className={`px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2 ${
-                                             viewMode === 'masonry'
-                                                 ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-md'
-                                                 : 'bg-orange-100 text-orange-700 hover:bg-orange-200'
-                                         }`}
-                                     >
-                                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                             <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                                         </svg>
-                                         Masonry
-                                     </button>
-                                 </div>
-                             </div>
+                         
                          </div>
  
                          {/* Search Bar */}
@@ -317,56 +309,13 @@
                          ))}
                      </div>
  
-                     {/* Stats Section */}
-                     <div className="mt-12 bg-white rounded-xl shadow-lg p-8">
-                         <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">📊 Statistik Galeri</h3>
-                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                             <div className="text-center bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl">
-                                 <div className="text-4xl font-bold text-orange-600 mb-2">{galleries.length}</div>
-                                 <p className="text-sm text-gray-700 font-medium">Total Galeri</p>
-                             </div>
-                             <div className="text-center bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl">
-                                 <div className="text-4xl font-bold text-pink-600 mb-2">
-                                     {galleries.reduce((sum, g) => sum + g.images, 0)}
-                                 </div>
-                                 <p className="text-sm text-gray-700 font-medium">Total Foto</p>
-                             </div>
-                             <div className="text-center bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
-                                 <div className="text-4xl font-bold text-blue-600 mb-2">8</div>
-                                 <p className="text-sm text-gray-700 font-medium">Kategori</p>
-                             </div>
-                             <div className="text-center bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
-                                 <div className="text-4xl font-bold text-green-600 mb-2">2024</div>
-                                 <p className="text-sm text-gray-700 font-medium">Update Terbaru</p>
-                             </div>
-                         </div>
-                     </div>
- 
                      {/* Load More */}
                      <div className="mt-12 text-center">
                          <button className="px-8 py-3 bg-white border-2 border-orange-300 text-orange-600 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition duration-150 font-bold shadow-md">
                              Muat Galeri Lainnya 
                          </button>
                      </div>
- 
-                     {/* CTA Section */}
-                     <div className="mt-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl p-8 text-center text-white shadow-xl">
-                         <div className="text-5xl mb-4">📷</div>
-                         <h3 className="text-3xl font-bold mb-2">
-                             Bagikan Momen Anda!
-                         </h3>
-                         <p className="text-orange-100 mb-6 text-lg">
-                             Punya foto menarik bersama hewan kesayangan? Tag kami di Instagram @pawscommerce
-                         </p>
-                         <div className="flex gap-4 justify-center">
-                             <button className="px-8 py-3 bg-white text-orange-600 rounded-full font-bold hover:bg-orange-50 transition shadow-lg">
-                                 Upload Foto 
-                             </button>
-                             <button className="px-8 py-3 bg-orange-600 text-white rounded-full font-bold hover:bg-orange-700 transition shadow-lg">
-                                 Follow Instagram 
-                             </button>
-                         </div>
-                     </div>
+  
                  </div>
              </div>
          </AuthenticatedLayout>

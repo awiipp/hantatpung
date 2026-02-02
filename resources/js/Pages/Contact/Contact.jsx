@@ -1,5 +1,6 @@
  import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
  import { Head } from "@inertiajs/react";
+ import { FaEnvelope, FaInstagram, FaLocationArrow, FaTelegram, FaWhatsapp } from "react-icons/fa"
  
  export default function Contact() {
      return (
@@ -8,7 +9,7 @@
  
              {/* Hero Section */}
              <div className="bg-gradient-to-r from-orange-400 to-pink-500 text-white py-16 text-center">
-                 <h1 className="text-4xl font-bold mb-3">💬 Hubungi Kami</h1>
+                 <h1 className="text-4xl font-bold mb-3"> Hubungi Kami</h1>
                  <p className="text-xl">Kami siap membantu Anda dan hewan kesayangan!</p>
              </div>
  
@@ -18,28 +19,28 @@
                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
                          <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
                              <div className="bg-gradient-to-br from-orange-100 to-orange-200 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
-                                 <span className="text-3xl">📞</span>
+                             <FaInstagram className="text-3xl text-orange-500" />
                              </div>
-                             <h4 className="font-bold text-gray-800 mb-1">Telepon</h4>
-                             <p className="text-sm text-orange-600 font-semibold">+62 812-PAWS-CARE</p>
+                             <h4 className="font-bold text-gray-800 mb-1">Instagram</h4>
+                             <p className="text-sm text-orange-600 font-semibold">@pawscommerce</p>
                          </div>
                          <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
                              <div className="bg-gradient-to-br from-pink-100 to-pink-200 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
-                                 <span className="text-3xl">📧</span>
+                                <FaEnvelope className="text-3xl text-pink-500" />
                              </div>
                              <h4 className="font-bold text-gray-800 mb-1">Email</h4>
                              <p className="text-sm text-pink-600 font-semibold">info@pawscommerce.id</p>
                          </div>
                          <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
                              <div className="bg-gradient-to-br from-green-100 to-green-200 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
-                                 <span className="text-3xl">💬</span>
+                                <FaWhatsapp className="text-3xl text-green-500" />
                              </div>
                              <h4 className="font-bold text-gray-800 mb-1">WhatsApp</h4>
                              <p className="text-sm text-green-600 font-semibold">Chat Langsung</p>
                          </div>
                          <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
                              <div className="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
-                                 <span className="text-3xl">📍</span>
+                                <FaLocationArrow className="text-3xl text-blue-500" />
                              </div>
                              <h4 className="font-bold text-gray-800 mb-1">Lokasi</h4>
                              <p className="text-sm text-blue-600 font-semibold">Jakarta, Indonesia</p>
@@ -52,14 +53,13 @@
                                  {/* Contact Information */}
                                  <div className="bg-gradient-to-br from-orange-50 to-pink-50 p-8 rounded-xl">
                                      <h3 className="text-2xl font-bold mb-6 text-orange-600 flex items-center gap-2">
-                                         <span>🐾</span> Informasi Kontak
+                                         <span></span> Informasi Kontak
                                      </h3>
                                      
                                      <div className="space-y-6">
                                          <div className="bg-white p-4 rounded-lg shadow-sm">
-                                             <div className="flex items-start gap-3">
+                                             <div className="flex items-center gap-3">
                                                  <div className="bg-orange-100 p-2 rounded-lg">
-                                                     <span className="text-2xl">📍</span>
                                                  </div>
                                                  <div>
                                                      <p className="font-bold text-gray-800 mb-1">
@@ -75,9 +75,8 @@
                                          </div>
  
                                          <div className="bg-white p-4 rounded-lg shadow-sm">
-                                             <div className="flex items-start gap-3">
+                                               <div className="flex items-center gap-3">
                                                  <div className="bg-pink-100 p-2 rounded-lg">
-                                                     <span className="text-2xl">📞</span>
                                                  </div>
                                                  <div>
                                                      <p className="font-bold text-gray-800 mb-1">
@@ -93,9 +92,8 @@
                                          </div>
  
                                          <div className="bg-white p-4 rounded-lg shadow-sm">
-                                             <div className="flex items-start gap-3">
+                                                <div className="flex items-center gap-3">
                                                  <div className="bg-blue-100 p-2 rounded-lg">
-                                                     <span className="text-2xl">📧</span>
                                                  </div>
                                                  <div>
                                                      <p className="font-bold text-gray-800 mb-1">
@@ -111,9 +109,8 @@
                                          </div>
  
                                          <div className="bg-white p-4 rounded-lg shadow-sm">
-                                             <div className="flex items-start gap-3">
+                                                <div className="flex items-center gap-3">
                                                  <div className="bg-green-100 p-2 rounded-lg">
-                                                     <span className="text-2xl">🕐</span>
                                                  </div>
                                                  <div>
                                                      <p className="font-bold text-gray-800 mb-1">
@@ -131,9 +128,8 @@
                                          </div>
  
                                          <div className="bg-white p-4 rounded-lg shadow-sm">
-                                             <div className="flex items-start gap-3">
+                                                <div className="flex items-center gap-3">
                                                  <div className="bg-purple-100 p-2 rounded-lg">
-                                                     <span className="text-2xl">🏥</span>
                                                  </div>
                                                  <div>
                                                      <p className="font-bold text-gray-800 mb-1">
@@ -151,7 +147,7 @@
  
                                      {/* Social Media */}
                                      <div className="mt-6 bg-white p-4 rounded-lg shadow-sm">
-                                         <p className="font-bold text-gray-800 mb-3">Follow Us 🐾</p>
+                                         <p className="font-bold text-gray-800 mb-3">Follow Us </p>
                                          <div className="flex gap-3">
                                              <button className="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition">
                                                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -180,7 +176,7 @@
                                  {/* Contact Form */}
                                  <div>
                                      <h3 className="text-2xl font-bold mb-6 text-pink-600 flex items-center gap-2">
-                                         <span>✉️</span> Kirim Pesan
+                                         <span></span> Kirim Pesan
                                      </h3>
  
                                      <form className="space-y-4">
@@ -288,7 +284,6 @@
                                      {/* Additional Info */}
                                      <div className="mt-6 bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-lg border-2 border-blue-200">
                                          <p className="text-sm text-gray-700 flex items-start gap-2">
-                                             <span className="text-xl">ℹ️</span>
                                              <span>
                                                  <strong>Catatan:</strong> Tim kami akan merespons pesan Anda dalam waktu maksimal 1x24 jam pada hari kerja. 
                                                  Untuk pertanyaan mendesak, hubungi kami via WhatsApp.
@@ -302,7 +297,7 @@
  
                      {/* FAQ Section */}
                      <div className="mt-8 bg-white rounded-2xl shadow-xl p-8">
-                         <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">❓ Pertanyaan yang Sering Diajukan</h3>
+                         <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">Pertanyaan yang Sering Diajukan</h3>
                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                              <div className="bg-orange-50 p-4 rounded-lg">
                                  <h4 className="font-bold text-orange-600 mb-2">Bagaimana cara memesan produk?</h4>

@@ -14,8 +14,6 @@
              petType: 'Dog',
              price: 459000,
              originalPrice: 550000,
-             rating: 4.8,
-             reviews: 234,
              image: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400',
              badge: 'Best Seller',
              weight: '5kg'
@@ -303,13 +301,7 @@
                                          {product.name}
                                      </h3>
  
-                                     {/* Rating */}
-                                     <div className="mb-3">
-                                         {renderStars(product.rating)}
-                                         <span className="text-xs text-gray-500 ml-1">
-                                             ({product.reviews} reviews)
-                                         </span>
-                                     </div>
+                                    
  
                                      {/* Price */}
                                      <div className="mb-4 pb-4 border-b border-gray-100">
@@ -317,17 +309,9 @@
                                              <span className="text-xl font-bold text-orange-600">
                                                  {formatPrice(product.price)}
                                              </span>
-                                             {product.originalPrice && (
-                                                 <span className="text-sm text-gray-400 line-through">
-                                                     {formatPrice(product.originalPrice)}
-                                                 </span>
-                                             )}
+                                          
                                          </div>
-                                         {product.originalPrice && (
-                                             <span className="text-xs text-red-600 font-bold bg-red-50 px-2 py-0.5 rounded inline-block mt-1">
-                                                 Save {Math.round((1 - product.price / product.originalPrice) * 100)}%
-                                             </span>
-                                         )}
+                                   
                                      </div>
  
                                      {/* Add to Cart Button */}
