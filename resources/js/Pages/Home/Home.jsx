@@ -8,7 +8,7 @@
  
              {/* Hero Section */}
              <div className="bg-gradient-to-r from-orange-400 to-pink-500 text-white py-20 text-center">
-                 <h1 className="text-4xl font-bold mb-4">🐾 Welcome to PawsCommerce 🐾</h1>
+                 <h1 className="text-4xl font-bold mb-4">Welcome to PawsCommerce</h1>
                  <p className="text-xl mb-6">Segala Kebutuhan Hewan Kesayangan Anda</p>
                  <button className="bg-white text-orange-500 px-6 py-3 rounded-full font-semibold hover:bg-orange-50 transition">
                      Belanja Sekarang
@@ -23,7 +23,6 @@
                      {/* Product 1 */}
                      <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
                          <div className="bg-orange-100 rounded-lg h-48 flex items-center justify-center mb-4">
-                             <span className="text-6xl">🐕</span>
                          </div>
                          <h3 className="font-semibold mb-2">Premium Dog Food</h3>
                          <p className="text-gray-600 mb-1 text-sm">Makanan anjing berkualitas tinggi</p>
@@ -36,7 +35,6 @@
                      {/* Product 2 */}
                      <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
                          <div className="bg-pink-100 rounded-lg h-48 flex items-center justify-center mb-4">
-                             <span className="text-6xl">🐱</span>
                          </div>
                          <h3 className="font-semibold mb-2">Cat Scratching Post</h3>
                          <p className="text-gray-600 mb-1 text-sm">Mainan cakaran untuk kucing</p>
@@ -49,7 +47,6 @@
                      {/* Product 3 */}
                      <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
                          <div className="bg-blue-100 rounded-lg h-48 flex items-center justify-center mb-4">
-                             <span className="text-6xl">🐦</span>
                          </div>
                          <h3 className="font-semibold mb-2">Bird Cage Deluxe</h3>
                          <p className="text-gray-600 mb-1 text-sm">Kandang burung premium</p>
@@ -67,25 +64,21 @@
                  
                  <div className="max-w-6xl mx-auto grid grid-cols-4 gap-6">
                      <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition cursor-pointer">
-                         <div className="text-5xl mb-3">🐕</div>
                          <h3 className="font-semibold text-gray-700">Anjing</h3>
                          <p className="text-xs text-gray-500 mt-1">Makanan & Aksesoris</p>
                      </div>
  
                      <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition cursor-pointer">
-                         <div className="text-5xl mb-3">🐱</div>
                          <h3 className="font-semibold text-gray-700">Kucing</h3>
                          <p className="text-xs text-gray-500 mt-1">Makanan & Mainan</p>
                      </div>
  
                      <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition cursor-pointer">
-                         <div className="text-5xl mb-3">🐦</div>
                          <h3 className="font-semibold text-gray-700">Burung</h3>
                          <p className="text-xs text-gray-500 mt-1">Kandang & Pakan</p>
                      </div>
  
                      <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition cursor-pointer">
-                         <div className="text-5xl mb-3">🐠</div>
                          <h3 className="font-semibold text-gray-700">Ikan</h3>
                          <p className="text-xs text-gray-500 mt-1">Aquarium & Perlengkapan</p>
                      </div>
@@ -99,7 +92,6 @@
                  <div className="max-w-6xl mx-auto grid grid-cols-3 gap-8 text-center">
                      <div>
                          <div className="bg-orange-100 w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                             <span className="text-3xl">🚚</span>
                          </div>
                          <h3 className="font-semibold mb-2">Pengiriman Cepat</h3>
                          <p className="text-gray-600">Gratis ongkir untuk pembelian di atas Rp 200.000</p>
@@ -107,7 +99,6 @@
  
                      <div>
                          <div className="bg-pink-100 w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                             <span className="text-3xl">✅</span>
                          </div>
                          <h3 className="font-semibold mb-2">Produk Berkualitas</h3>
                          <p className="text-gray-600">Semua produk sudah tersertifikasi dan aman</p>
@@ -115,7 +106,6 @@
  
                      <div>
                          <div className="bg-blue-100 w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                             <span className="text-3xl">💬</span>
                          </div>
                          <h3 className="font-semibold mb-2">Konsultasi Gratis</h3>
                          <p className="text-gray-600">Chat dengan dokter hewan kami 24/7</p>
@@ -146,15 +136,15 @@
                      <div>
                          <h4 className="font-bold mb-3">Kontak</h4>
                          <ul className="space-y-2 text-orange-100 text-sm">
-                             <li>📧 info@pawscommerce.com</li>
-                             <li>📱 0812-PAWS-CARE</li>
-                             <li>📍 Jakarta, Indonesia</li>
+                             <li>info@pawscommerce.com</li>
+                             <li>0812-PAWS-CARE</li>
+                             <li>Jakarta, Indonesia</li>
                          </ul>
                      </div>
                  </div>
  
                  <div className="border-t border-orange-400 pt-4 text-center text-orange-100 text-sm">
-                     <p>&copy; 2026 PawsCommerce. Dibuat dengan ❤️ untuk hewan kesayangan Anda</p>
+                     <p>&copy; 2026 PawsCommerce. Dibuat dengan hati untuk hewan kesayangan Anda</p>
                  </div>
              </footer>
          </AuthenticatedLayout>

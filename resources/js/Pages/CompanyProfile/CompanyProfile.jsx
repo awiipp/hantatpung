@@ -187,17 +187,15 @@
                              </div>
  
                              <div className="text-center group">
-                                 <div className="bg-gradient-to-br from-pink-200 to-pink-300 w-36 h-36 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-105 transition shadow-lg">
-                                 </div>
-                                 <h4 className="font-bold mb-1 text-lg">Budi Santoso</h4>
+                                 <img src='/images/ihanie-dokter.jpg'className="bg-gradient-to-br from-pink-200 to-pink-300 w-36 h-36 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-105 transition shadow-lg"/>
+                                 <h4 className="font-bold mb-1 text-lg">Dr Kim Leehan</h4>
                                  <p className="text-sm text-pink-600 mb-2 font-semibold">Chief Operations Officer</p>
                                  <p className="text-xs text-gray-600 mb-1">Ahli Logistik Pet Care</p>
                                  <p className="text-xs text-gray-500">Expert dalam supply chain management</p>
                              </div>
  
                              <div className="text-center group">
-                                 <div className="bg-gradient-to-br from-blue-200 to-blue-300 w-36 h-36 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-105 transition shadow-lg">
-                                 </div>
+                                 <img src='/images/unak-imut.jpg'className="bg-gradient-to-br from-blue-200 to-blue-300 w-36 h-36 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-105 transition shadow-lg"/>
                                  <h4 className="font-bold mb-1 text-lg">Linda Kusuma</h4>
                                  <p className="text-sm text-blue-600 mb-2 font-semibold">Head of Customer Care</p>
                                  <p className="text-xs text-gray-600 mb-1">Pet Care Consultant</p>

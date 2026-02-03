@@ -15,7 +15,6 @@
              price: 459000,
              originalPrice: 550000,
              image: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400',
-             badge: 'Best Seller',
              weight: '5kg'
          },
          { 
@@ -40,7 +39,6 @@
              rating: 4.6,
              reviews: 98,
              image: 'https://images.unsplash.com/photo-1591768575383-310ff1cc0f8d?w=400',
-             badge: 'Sale',
              weight: null
          },
          { 
@@ -52,7 +50,6 @@
              rating: 4.9,
              reviews: 312,
              image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400',
-             badge: 'Best Seller',
              weight: '10L'
          },
          { 
@@ -77,7 +74,6 @@
              rating: 4.5,
              reviews: 203,
              image: 'https://images.unsplash.com/photo-1591871937573-74dbba515c4c?w=400',
-             badge: 'Sale',
              weight: null
          },
          { 

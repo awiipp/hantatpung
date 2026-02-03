@@ -1,71 +1,78 @@
  import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
 
-export default function ProductAdmin() {
-    const products = [
-        { 
-            id: 1, 
-            name: 'Premium Dog Food - Adult Breed', 
-            category: 'Food',
-            petType: 'Dog',
-            price: 'Rp 459.000', 
-            stock: 45,
-            status: 'In Stock',
-            image: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=100'
-        },
-        { 
-            id: 2, 
-            name: 'Cat Scratching Post Tower', 
-            category: 'Toys',
-            petType: 'Cat',
-            price: 'Rp 899.000', 
-            stock: 12,
-            status: 'Low Stock',
-            image: 'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=100'
-        },
-        { 
-            id: 3, 
-            name: 'Automatic Pet Feeder', 
-            category: 'Accessories',
-            petType: 'All Pets',
-            price: 'Rp 1.299.000', 
-            stock: 0,
-            status: 'Out of Stock',
-            image: 'https://images.unsplash.com/photo-1591768575383-310ff1cc0f8d?w=100'
-        },
-        { 
-            id: 4, 
-            name: 'Natural Cat Litter - Unscented', 
-            category: 'Hygiene',
-            petType: 'Cat',
-            price: 'Rp 185.000', 
-            stock: 78,
-            status: 'In Stock',
-            image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=100'
-        },
-        { 
-            id: 5, 
-            name: 'Orthopedic Dog Bed - Large', 
-            category: 'Accessories',
-            petType: 'Dog',
-            price: 'Rp 1.450.000', 
-            stock: 15,
-            status: 'In Stock',
-            image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=100'
-        },
-        { 
-            id: 6, 
-            name: 'Interactive Cat Toy Set', 
-            category: 'Toys',
-            petType: 'Cat',
-            price: 'Rp 275.000', 
-            stock: 8,
-            status: 'Low Stock',
-            image: 'https://images.unsplash.com/photo-1591871937573-74dbba515c4c?w=100'
-        },
-    ];
+export default function ProductAdmin({products}) {
+    console.log(products);
+    // const products = [
+    //     { 
+    //         id: 1, 
+    //         name: 'Premium Dog Food - Adult Breed', 
+    //         category: 'Food',
+    //         petType: 'Dog',
+    //         price: 'Rp 459.000', 
+    //         stock: 45,
+    //         status: 'In Stock',
+    //         image: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=100'
+    //     },
+    //     { 
+    //         id: 2, 
+    //         name: 'Cat Scratching Post Tower', 
+    //         category: 'Toys',
+    //         petType: 'Cat',
+    //         price: 'Rp 899.000', 
+    //         stock: 12,
+    //         status: 'Low Stock',
+    //         image: 'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=100'
+    //     },
+    //     { 
+    //         id: 3, 
+    //         name: 'Automatic Pet Feeder', 
+    //         category: 'Accessories',
+    //         petType: 'All Pets',
+    //         price: 'Rp 1.299.000', 
+    //         stock: 0,
+    //         status: 'Out of Stock',
+    //         image: 'https://images.unsplash.com/photo-1591768575383-310ff1cc0f8d?w=100'
+    //     },
+    //     { 
+    //         id: 4, 
+    //         name: 'Natural Cat Litter - Unscented', 
+    //         category: 'Hygiene',
+    //         petType: 'Cat',
+    //         price: 'Rp 185.000', 
+    //         stock: 78,
+    //         status: 'In Stock',
+    //         image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=100'
+    //     },
+    //     { 
+    //         id: 5, 
+    //         name: 'Orthopedic Dog Bed - Large', 
+    //         category: 'Accessories',
+    //         petType: 'Dog',
+    //         price: 'Rp 1.450.000', 
+    //         stock: 15,
+    //         status: 'In Stock',
+    //         image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=100'
+    //     },
+    //     { 
+    //         id: 6, 
+    //         name: 'Interactive Cat Toy Set', 
+    //         category: 'Toys',
+    //         petType: 'Cat',
+    //         price: 'Rp 275.000', 
+    //         stock: 8,
+    //         status: 'Low Stock',
+    //         image: 'https://images.unsplash.com/photo-1591871937573-74dbba515c4c?w=100'
+    //     },
+    // ];
 
-    const categories = ['All', 'Food', 'Toys', 'Accessories', 'Hygiene'];
+    const categories = [
+        'Food',
+        'Toys',
+        'Accessories',
+        'Healthcare',
+        'Grooming'
+    ];
 
     return (
         <AuthenticatedLayout
@@ -86,7 +93,7 @@ export default function ProductAdmin() {
             <Head title="Pet Products Admin" />
 
             <div className="py-12 bg-gradient-to-b from-orange-50 to-white min-h-screen">
-                <div className="mx-auto max-w-5xl sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {/* Stats */}
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 mb-8">
                         <div className="bg-white p-6 rounded-xl shadow-md border border-orange-100 hover:shadow-lg transition-all">
@@ -207,7 +214,7 @@ export default function ProductAdmin() {
                                                 <div className="flex items-center">
                                                     <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg mr-4 overflow-hidden border-2 border-orange-200">
                                                         <img 
-                                                            src={product.image} 
+                                                            src={`/storage/${product.image}`} 
                                                             alt={product.name}
                                                             className="w-full h-full object-cover"
                                                         />
@@ -226,7 +233,7 @@ export default function ProductAdmin() {
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <span className="text-sm text-gray-600 font-medium">
-                                                    {product.petType}
+                                                    {product.pet_type}
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
@@ -242,10 +249,8 @@ export default function ProductAdmin() {
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <span
                                                     className={`px-3 py-1.5 inline-flex text-xs leading-5 font-bold rounded-full ${
-                                                        product.status === 'In Stock'
+                                                        product.status === 'available'
                                                             ? 'bg-green-100 text-green-800 border border-green-300'
-                                                            : product.status === 'Low Stock'
-                                                            ? 'bg-yellow-100 text-yellow-800 border border-yellow-300'
                                                             : 'bg-red-100 text-red-800 border border-red-300'
                                                     }`}
                                                 >
@@ -260,9 +265,14 @@ export default function ProductAdmin() {
                                                     >
                                                         Edit
                                                     </Link>
-                                                    <button className="text-red-600 hover:text-red-800 font-semibold hover:bg-red-50 px-3 py-1 rounded transition-all">
+                                                     <Link
+                                                        href={route('products.destroy', product.id)}
+                                                        method="delete"
+                                                        as="button"
+                                                        className="text-red-600 hover:text-red-800 font-semibold hover:bg-red-50 px-3 py-1 rounded transition-all"
+                                                    >
                                                         Delete
-                                                    </button>
+                                                    </Link>
                                                 </div>
                                             </td>
                                         </tr>
@@ -294,28 +304,6 @@ export default function ProductAdmin() {
                                 </button>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Quick Actions */}
-                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <button className="bg-white border-2 border-orange-300 text-orange-700 px-6 py-4 rounded-xl hover:bg-orange-50 transition-all font-semibold shadow-md hover:shadow-lg flex items-center justify-center gap-2">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                            </svg>
-                            Import Products
-                        </button>
-                        <button className="bg-white border-2 border-orange-300 text-orange-700 px-6 py-4 rounded-xl hover:bg-orange-50 transition-all font-semibold shadow-md hover:shadow-lg flex items-center justify-center gap-2">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                            </svg>
-                            Export Products
-                        </button>
-                        <button className="bg-white border-2 border-orange-300 text-orange-700 px-6 py-4 rounded-xl hover:bg-orange-50 transition-all font-semibold shadow-md hover:shadow-lg flex items-center justify-center gap-2">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                            </svg>
-                            View Analytics
-                        </button>
                     </div>
                 </div>
             </div>

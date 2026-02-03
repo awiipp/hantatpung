@@ -1,15 +1,16 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
 
-export default function ProductCreate() {
+export default function ProductEdit({ product }) {
     const { data, setData, post, processing, errors } = useForm({
-        product_name: '',
-        category: '',
-        pet_type: '',
-        price: '',
-        description: '',
-        status: 'available',
+        product_name: product.product_name || '',
+        category: product.category || '',
+        pet_type: product.pet_type || '',
+        price: product.price || '',
+        description: product.description || '',
+        status: product.status || 'available',
         image: null,
+        _method: "PUT",
     });
 
     const categories = [
@@ -30,9 +31,11 @@ export default function ProductCreate() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route('products.store'), {
+        post(route('products.update', product.id), {
             forceFormData: true,
         });
+
+        console.log(data);
     };
 
     return (
@@ -40,7 +43,7 @@ export default function ProductCreate() {
             header={
                 <div className="flex justify-between items-center">
                     <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                        Add New Product
+                        Edit Product
                     </h2>
                     <Link
                         href="/products"
@@ -51,7 +54,7 @@ export default function ProductCreate() {
                 </div>
             }
         >
-            <Head title="Add New Product" />
+            <Head title="Edit Product" />
 
             <div className="py-12 bg-gradient-to-b from-orange-50 to-white min-h-screen">
                 <div className="mx-auto max-w-4xl sm:px-6 lg:px-8">
@@ -63,7 +66,7 @@ export default function ProductCreate() {
                                     Product Information
                                 </h3>
                                 <p className="text-sm text-gray-600 mt-1">
-                                    Fill in the details below to add a new pet product to your inventory
+                                    Update the details below to edit the product
                                 </p>
                             </div>
 
@@ -176,6 +179,19 @@ export default function ProductCreate() {
                                     <label htmlFor="image" className="block text-sm font-semibold text-gray-700 mb-2">
                                         Product Image
                                     </label>
+                                    
+                                    {/* Current Image Preview */}
+                                    {product.image && !data.image && (
+                                        <div className="mb-4">
+                                            <p className="text-sm text-gray-600 mb-2">Current Image:</p>
+                                            <img 
+                                                src={`/storage/${product.image}`} 
+                                                alt={product.product_name}
+                                                className="w-32 h-32 object-cover rounded-lg border-2 border-orange-200"
+                                            />
+                                        </div>
+                                    )}
+
                                     <div className="border-2 border-dashed border-orange-300 rounded-lg p-6 text-center hover:border-orange-400 transition-all">
                                         <input
                                             type="file"
@@ -191,14 +207,15 @@ export default function ProductCreate() {
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                                                 </svg>
                                                 <p className="text-sm text-gray-600 mb-1">
-                                                    <span className="text-orange-600 font-semibold">Click to upload</span> or drag and drop
+                                                    <span className="text-orange-600 font-semibold">Click to upload new image</span> or drag and drop
                                                 </p>
                                                 <p className="text-xs text-gray-500">PNG, JPG, WEBP up to 5MB</p>
+                                                <p className="text-xs text-gray-400 mt-1">Leave empty to keep current image</p>
                                             </div>
                                         </label>
                                         {data.image && (
                                             <p className="mt-3 text-sm text-green-600 font-medium">
-                                                Selected: {data.image.name}
+                                                New image selected: {data.image.name}
                                             </p>
                                         )}
                                     </div>
@@ -249,7 +266,7 @@ export default function ProductCreate() {
                                         disabled={processing}
                                         className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg font-semibold transition-all shadow-md hover:shadow-lg disabled:opacity-50"
                                     >
-                                        {processing ? 'Saving...' : 'Save Product'}
+                                        {processing ? 'Updating...' : 'Update Product'}
                                     </button>
                                 </div>
                             </form>
