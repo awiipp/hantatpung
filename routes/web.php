@@ -6,14 +6,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', fn()=> redirect()->route('home'));
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -33,7 +26,7 @@ Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('pro
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
-Route::get('/home', fn () => Inertia::render('Home/Home'));
+Route::get('/home', fn () => Inertia::render('Home/Home'))->name('home');
 Route::get('/about-us', fn () => Inertia::render('AboutUs/AboutUs'))->name('about-us');
 Route::get('/company-profile', fn () => Inertia::render('CompanyProfile/CompanyProfile'))->name('company-profile');
 Route::get('/contact', fn () => Inertia::render('Contact/Contact'))->name('contact');

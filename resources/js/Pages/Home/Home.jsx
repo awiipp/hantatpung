@@ -22,8 +22,7 @@
                  <div className="max-w-6xl mx-auto grid grid-cols-3 gap-6">
                      {/* Product 1 */}
                      <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
-                         <div className="bg-orange-100 rounded-lg h-48 flex items-center justify-center mb-4">
-                         </div>
+                         <img src='/images/anjing-makanan.jpeg' className="bg-orange-100 w-full object-cover rounded-lg h-48 flex items-center justify-center mb-4"/>
                          <h3 className="font-semibold mb-2">Premium Dog Food</h3>
                          <p className="text-gray-600 mb-1 text-sm">Makanan anjing berkualitas tinggi</p>
                          <p className="text-orange-600 font-bold mb-3">Rp 299.000</p>
@@ -34,8 +33,7 @@
  
                      {/* Product 2 */}
                      <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
-                         <div className="bg-pink-100 rounded-lg h-48 flex items-center justify-center mb-4">
-                         </div>
+                         <img src='/images/scratch-cat.jpeg' className="bg-pink-100 w-full object-cover rounded-lg h-48 flex items-center justify-center mb-4"/>
                          <h3 className="font-semibold mb-2">Cat Scratching Post</h3>
                          <p className="text-gray-600 mb-1 text-sm">Mainan cakaran untuk kucing</p>
                          <p className="text-orange-600 font-bold mb-3">Rp 450.000</p>
@@ -46,8 +44,7 @@
  
                      {/* Product 3 */}
                      <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
-                         <div className="bg-blue-100 rounded-lg h-48 flex items-center justify-center mb-4">
-                         </div>
+                         <img src='/images/kandang-burung.jpeg' className="bg-blue-100 rounded-lg h-48 flex items-center justify-center mb-4"/>
                          <h3 className="font-semibold mb-2">Bird Cage Deluxe</h3>
                          <p className="text-gray-600 mb-1 text-sm">Kandang burung premium</p>
                          <p className="text-orange-600 font-bold mb-3">Rp 899.000</p>
@@ -91,22 +88,16 @@
                  
                  <div className="max-w-6xl mx-auto grid grid-cols-3 gap-8 text-center">
                      <div>
-                         <div className="bg-orange-100 w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                         </div>
                          <h3 className="font-semibold mb-2">Pengiriman Cepat</h3>
                          <p className="text-gray-600">Gratis ongkir untuk pembelian di atas Rp 200.000</p>
                      </div>
  
                      <div>
-                         <div className="bg-pink-100 w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                         </div>
                          <h3 className="font-semibold mb-2">Produk Berkualitas</h3>
                          <p className="text-gray-600">Semua produk sudah tersertifikasi dan aman</p>
                      </div>
  
                      <div>
-                         <div className="bg-blue-100 w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                         </div>
                          <h3 className="font-semibold mb-2">Konsultasi Gratis</h3>
                          <p className="text-gray-600">Chat dengan dokter hewan kami 24/7</p>
                      </div>
@@ -118,7 +109,7 @@
                  <div className="max-w-6xl mx-auto grid grid-cols-3 gap-8 mb-6">
                      <div>
                          <h4 className="font-bold mb-3 flex items-center gap-2">
-                             <span>🐾</span> PawsCommerce
+                          PawsCommerce
                          </h4>
                          <p className="text-orange-100 text-sm">Sahabat terbaik hewan kesayangan Anda sejak 2026</p>
                      </div>
