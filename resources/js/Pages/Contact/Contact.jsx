@@ -1,8 +1,24 @@
  import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
- import { Head } from "@inertiajs/react";
+ import { Head, useForm } from "@inertiajs/react";
  import { FaEnvelope, FaInstagram, FaLocationArrow, FaTelegram, FaWhatsapp } from "react-icons/fa"
  
  export default function Contact() {
+    const {data, setData, post, reset} = useForm({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        post(route('contact.store'), {
+            onSuccess: () => {
+                reset();
+            }
+        });
+    }
      return (
          <AuthenticatedLayout>
              <Head title="Contact Us" />
@@ -179,7 +195,7 @@
                                          <span></span> Kirim Pesan
                                      </h3>
  
-                                     <form className="space-y-4">
+                                     <form className="space-y-4" onSubmit={handleSubmit}>
                                          <div>
                                              <label
                                                  htmlFor="name"
@@ -191,6 +207,8 @@
                                                  type="text"
                                                  id="name"
                                                  name="name"
+                                                 value={data.name}
+                                                 onChange={(e) => setData('name', e.target.value)}
                                                  placeholder="Masukkan nama Anda"
                                                  className="w-full rounded-lg border-2 border-orange-200 shadow-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500 px-4 py-2"
                                                  required
@@ -208,6 +226,8 @@
                                                  type="email"
                                                  id="email"
                                                  name="email"
+                                                 value={data.email}
+                                                 onChange={(e) => setData('email', e.target.value)}
                                                  placeholder="email@example.com"
                                                  className="w-full rounded-lg border-2 border-orange-200 shadow-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500 px-4 py-2"
                                                  required
@@ -225,6 +245,8 @@
                                                  type="tel"
                                                  id="phone"
                                                  name="phone"
+                                                 value={data.phone}
+                                                 onChange={(e) => setData('phone', e.target.value)}
                                                  placeholder="+62 812-xxxx-xxxx"
                                                  className="w-full rounded-lg border-2 border-orange-200 shadow-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500 px-4 py-2"
                                              />
@@ -240,6 +262,8 @@
                                              <select
                                                  id="subject"
                                                  name="subject"
+                                                 value={data.subject}
+                                                 onChange={(e) => setData('subject', e.target.value)}
                                                  className="w-full rounded-lg border-2 border-orange-200 shadow-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500 px-4 py-2"
                                                  required
                                              >
@@ -263,6 +287,8 @@
                                              <textarea
                                                  id="message"
                                                  name="message"
+                                                 value={data.message}
+                                                 onChange={(e) => setData('message', e.target.value)}
                                                  rows="5"
                                                  placeholder="Tulis pesan Anda di sini..."
                                                  className="w-full rounded-lg border-2 border-orange-200 shadow-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500 px-4 py-2"
