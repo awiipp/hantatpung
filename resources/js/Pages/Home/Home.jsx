@@ -1,7 +1,15 @@
  import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
- import { Head } from '@inertiajs/react';
+ import { Head, Link } from '@inertiajs/react';
  
- export default function Home() {
+ export default function Home({products}) {
+         const formatPrice = (price) => {
+         return new Intl.NumberFormat('id-ID', {
+             style: 'currency',
+             currency: 'IDR',
+             minimumFractionDigits: 0
+         }).format(price);
+     };
+
      return (
          <AuthenticatedLayout>
              <Head title="Home" />
@@ -20,38 +28,30 @@
                  <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Produk Pilihan</h2>
                  
                  <div className="max-w-6xl mx-auto grid grid-cols-3 gap-6">
-                     {/* Product 1 */}
-                     <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
-                         <img src='/images/anjing-makanan.jpeg' className="bg-orange-100 w-full object-cover rounded-lg h-48 flex items-center justify-center mb-4"/>
-                         <h3 className="font-semibold mb-2">Premium Dog Food</h3>
-                         <p className="text-gray-600 mb-1 text-sm">Makanan anjing berkualitas tinggi</p>
-                         <p className="text-orange-600 font-bold mb-3">Rp 299.000</p>
-                         <button className="bg-orange-500 text-white w-full py-2 rounded-lg hover:bg-orange-600 transition">
-                             Tambah ke Keranjang
-                         </button>
+                     {products.map((product) => (
+                        <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
+                         <img src={`/storage/${product.image}`} className="bg-blue-100 rounded-lg h-48 w-full object-cover flex items-center justify-center mb-4"/>
+                         <h3 className="font-semibold mb-2">{product.product_name}</h3>
+                         <p className="text-gray-600 mb-1 text-sm">{product.description}</p>
+                         <p className="text-orange-600 font-bold mb-3">{formatPrice(product.price)}</p>
+                        <Link className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 flex items-center justify-center gap-2 font-semibold shadow-md hover:shadow-lg">
+                            <svg
+                                className="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                                />
+                            </svg>
+                            Order Sekarang
+                        </Link>
                      </div>
- 
-                     {/* Product 2 */}
-                     <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
-                         <img src='/images/scratch-cat.jpeg' className="bg-pink-100 w-full object-cover rounded-lg h-48 flex items-center justify-center mb-4"/>
-                         <h3 className="font-semibold mb-2">Cat Scratching Post</h3>
-                         <p className="text-gray-600 mb-1 text-sm">Mainan cakaran untuk kucing</p>
-                         <p className="text-orange-600 font-bold mb-3">Rp 450.000</p>
-                         <button className="bg-orange-500 text-white w-full py-2 rounded-lg hover:bg-orange-600 transition">
-                             Tambah ke Keranjang
-                         </button>
-                     </div>
- 
-                     {/* Product 3 */}
-                     <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition">
-                         <img src='/images/kandang-burung.jpeg' className="bg-blue-100 rounded-lg h-48 flex items-center justify-center mb-4"/>
-                         <h3 className="font-semibold mb-2">Bird Cage Deluxe</h3>
-                         <p className="text-gray-600 mb-1 text-sm">Kandang burung premium</p>
-                         <p className="text-orange-600 font-bold mb-3">Rp 899.000</p>
-                         <button className="bg-orange-500 text-white w-full py-2 rounded-lg hover:bg-orange-600 transition">
-                             Tambah ke Keranjang
-                         </button>
-                     </div>
+                     ))}
                  </div>
              </div>
  

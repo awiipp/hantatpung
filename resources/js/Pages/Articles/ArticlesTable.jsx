@@ -19,7 +19,7 @@ export default function Article({ articles, published, draft }) {
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
+                        <div className="p-6 text-gray-900 min-h-[80vh]">
                             {/* Header */}
                             <div className="flex justify-between items-center mb-6">
                                 <div>
@@ -181,33 +181,7 @@ export default function Article({ articles, published, draft }) {
                                 </table>
                             </div>
 
-                            {/* Pagination */}
-                            <div className="mt-6 flex justify-between items-center">
-                                <div className="text-sm text-gray-700">
-                                    Menampilkan{" "}
-                                    <span className="font-semibold">1</span>{" "}
-                                    sampai{" "}
-                                    <span className="font-semibold">
-                                        {articles.length}
-                                    </span>{" "}
-                                    dari{" "}
-                                    <span className="font-semibold">
-                                        {articles.length}
-                                    </span>{" "}
-                                    artikel
-                                </div>
-                                <div className="flex space-x-2">
-                                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-600 hover:bg-gray-50 font-medium transition">
-                                        ← Previous
-                                    </button>
-                                    <button className="px-4 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-lg text-sm font-semibold shadow-md">
-                                        1
-                                    </button>
-                                    <button className="px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-600 hover:bg-gray-50 font-medium transition">
-                                        Next →
-                                    </button>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

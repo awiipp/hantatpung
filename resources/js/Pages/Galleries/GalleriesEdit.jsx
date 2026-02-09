@@ -1,9 +1,9 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function GalleriesCreate({gallery}) {
-    const [imagePreview, setImagePreview] = useState(null);
+    const [imagePreview, setImagePreview] = useState();
     
     const { data, setData, post, processing, errors, reset } = useForm({
         title: gallery.title,
@@ -16,14 +16,16 @@ export default function GalleriesCreate({gallery}) {
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
+
         if (file) {
             setData('image', file);
             
-            // Create preview
             const reader = new FileReader();
+
             reader.onloadend = () => {
                 setImagePreview(reader.result);
             };
+
             reader.readAsDataURL(file);
         }
     };
@@ -45,6 +47,12 @@ export default function GalleriesCreate({gallery}) {
         reset();
         setImagePreview(null);
     };
+
+    useEffect(() => {
+        if (gallery.image) {
+            setImagePreview(`/storage/${gallery.image}`);
+        }
+    }, [gallery.image])
 
     return (
         <AuthenticatedLayout>

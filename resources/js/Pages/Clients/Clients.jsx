@@ -1,89 +1,89 @@
  import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
-export default function ClientsUser() {
-    const testimonials = [
-        { 
-            id: 1, 
-            name: 'Dr. Budi Santoso',
-            business: 'Pet Paradise Veterinary',
-            category: 'Veterinary Clinic',
-            since: '2020',
-            rating: 5,
-            testimonial: 'Bekerja sama dengan PawsCommerce sangat membantu bisnis kami! Produk berkualitas tinggi dan support team yang luar biasa responsif. Pelanggan kami sangat puas dengan produk-produk yang kami rekomendasikan dari PawsCommerce.',
-            avatar: 'https://ui-avatars.com/api/?name=Budi+Santoso&background=f97316&color=fff'
-        },
-        { 
-            id: 2, 
-            name: 'Siti Nurhaliza',
-            business: 'Golden Paws Grooming',
-            category: 'Pet Grooming',
-            since: '2019',
-            rating: 5,
-            testimonial: 'Partnership dengan PawsCommerce membuka peluang baru untuk bisnis kami. Sistem yang profesional dan mudah digunakan. Produk grooming yang tersedia sangat lengkap dan berkualitas. Highly recommended!',
-            avatar: 'https://ui-avatars.com/api/?name=Siti+Nurhaliza&background=ec4899&color=fff'
-        },
-        { 
-            id: 3, 
-            name: 'Ahmad Rizki',
-            business: 'Pawfect Training Academy',
-            category: 'Pet Training',
-            since: '2021',
-            rating: 5,
-            testimonial: 'Sebagai akademi pelatihan anjing, kami membutuhkan produk-produk berkualitas untuk menunjang program training kami. PawsCommerce selalu menyediakan produk terbaik dengan harga kompetitif. Tim mereka juga sangat membantu dalam memberikan rekomendasi produk.',
-            avatar: 'https://ui-avatars.com/api/?name=Ahmad+Rizki&background=3b82f6&color=fff'
-        },
-        { 
-            id: 4, 
-            name: 'Linda Wijaya',
-            business: 'Happy Tails Pet Hotel',
-            category: 'Pet Boarding',
-            since: '2022',
-            rating: 5,
-            testimonial: 'Kerjasama dengan PawsCommerce membuat operasional hotel hewan kami menjadi lebih efisien. Pengiriman selalu tepat waktu dan produk selalu fresh. Customer service mereka sangat membantu dalam menangani setiap pertanyaan kami.',
-            avatar: 'https://ui-avatars.com/api/?name=Linda+Wijaya&background=10b981&color=fff'
-        },
-        { 
-            id: 5, 
-            name: 'Dedi Kurniawan',
-            business: 'Meow Meow Cat Cafe',
-            category: 'Cat Cafe',
-            since: '2020',
-            rating: 5,
-            testimonial: 'Sebagai cat cafe dengan berbagai ras kucing premium, kami sangat selective dalam memilih produk. PawsCommerce menyediakan makanan dan perlengkapan kucing berkualitas tinggi yang aman untuk kucing-kucing kami. Partnership ini sangat berharga!',
-            avatar: 'https://ui-avatars.com/api/?name=Dedi+Kurniawan&background=8b5cf6&color=fff'
-        },
-        { 
-            id: 6, 
-            name: 'Rini Susanti',
-            business: 'Aqua World Fish Store',
-            category: 'Aquatic Store',
-            since: '2018',
-            rating: 5,
-            testimonial: 'Sudah 6 tahun bermitra dengan PawsCommerce dan sangat puas! Mereka menyediakan produk aquatic terlengkap dengan kualitas terjamin. Sistem ordering yang mudah dan delivery yang cepat sangat membantu bisnis kami.',
-            avatar: 'https://ui-avatars.com/api/?name=Rini+Susanti&background=06b6d4&color=fff'
-        },
-        { 
-            id: 7, 
-            name: 'Eko Prasetyo',
-            business: 'Feathered Friends Aviary',
-            category: 'Bird Breeder',
-            since: '2021',
-            rating: 5,
-            testimonial: 'Penangkaran burung kami memerlukan produk-produk spesifik untuk burung eksotis. PawsCommerce tidak hanya menyediakan produk yang kami butuhkan, tapi juga memberikan konsultasi tentang produk terbaik untuk setiap jenis burung.',
-            avatar: 'https://ui-avatars.com/api/?name=Eko+Prasetyo&background=f59e0b&color=fff'
-        },
-        { 
-            id: 8, 
-            name: 'Maria Angelina',
-            business: 'Pet Insurance Plus',
-            category: 'Pet Insurance',
-            since: '2023',
-            rating: 5,
-            testimonial: 'Baru bergabung tahun ini tapi sudah sangat terkesan dengan profesionalisme PawsCommerce. Mereka membantu kami memahami kebutuhan pet owners dan menyediakan produk-produk yang sesuai dengan standar kesehatan hewan.',
-            avatar: 'https://ui-avatars.com/api/?name=Maria+Angelina&background=ef4444&color=fff'
-        },
-    ];
+export default function ClientsUser({clients}) {
+    // const testimonials = [
+    //     { 
+    //         id: 1, 
+    //         name: 'Dr. Budi Santoso',
+    //         business: 'Pet Paradise Veterinary',
+    //         category: 'Veterinary Clinic',
+    //         since: '2020',
+    //         rating: 5,
+    //         testimonial: 'Bekerja sama dengan PawsCommerce sangat membantu bisnis kami! Produk berkualitas tinggi dan support team yang luar biasa responsif. Pelanggan kami sangat puas dengan produk-produk yang kami rekomendasikan dari PawsCommerce.',
+    //         avatar: 'https://ui-avatars.com/api/?name=Budi+Santoso&background=f97316&color=fff'
+    //     },
+    //     { 
+    //         id: 2, 
+    //         name: 'Siti Nurhaliza',
+    //         business: 'Golden Paws Grooming',
+    //         category: 'Pet Grooming',
+    //         since: '2019',
+    //         rating: 5,
+    //         testimonial: 'Partnership dengan PawsCommerce membuka peluang baru untuk bisnis kami. Sistem yang profesional dan mudah digunakan. Produk grooming yang tersedia sangat lengkap dan berkualitas. Highly recommended!',
+    //         avatar: 'https://ui-avatars.com/api/?name=Siti+Nurhaliza&background=ec4899&color=fff'
+    //     },
+    //     { 
+    //         id: 3, 
+    //         name: 'Ahmad Rizki',
+    //         business: 'Pawfect Training Academy',
+    //         category: 'Pet Training',
+    //         since: '2021',
+    //         rating: 5,
+    //         testimonial: 'Sebagai akademi pelatihan anjing, kami membutuhkan produk-produk berkualitas untuk menunjang program training kami. PawsCommerce selalu menyediakan produk terbaik dengan harga kompetitif. Tim mereka juga sangat membantu dalam memberikan rekomendasi produk.',
+    //         avatar: 'https://ui-avatars.com/api/?name=Ahmad+Rizki&background=3b82f6&color=fff'
+    //     },
+    //     { 
+    //         id: 4, 
+    //         name: 'Linda Wijaya',
+    //         business: 'Happy Tails Pet Hotel',
+    //         category: 'Pet Boarding',
+    //         since: '2022',
+    //         rating: 5,
+    //         testimonial: 'Kerjasama dengan PawsCommerce membuat operasional hotel hewan kami menjadi lebih efisien. Pengiriman selalu tepat waktu dan produk selalu fresh. Customer service mereka sangat membantu dalam menangani setiap pertanyaan kami.',
+    //         avatar: 'https://ui-avatars.com/api/?name=Linda+Wijaya&background=10b981&color=fff'
+    //     },
+    //     { 
+    //         id: 5, 
+    //         name: 'Dedi Kurniawan',
+    //         business: 'Meow Meow Cat Cafe',
+    //         category: 'Cat Cafe',
+    //         since: '2020',
+    //         rating: 5,
+    //         testimonial: 'Sebagai cat cafe dengan berbagai ras kucing premium, kami sangat selective dalam memilih produk. PawsCommerce menyediakan makanan dan perlengkapan kucing berkualitas tinggi yang aman untuk kucing-kucing kami. Partnership ini sangat berharga!',
+    //         avatar: 'https://ui-avatars.com/api/?name=Dedi+Kurniawan&background=8b5cf6&color=fff'
+    //     },
+    //     { 
+    //         id: 6, 
+    //         name: 'Rini Susanti',
+    //         business: 'Aqua World Fish Store',
+    //         category: 'Aquatic Store',
+    //         since: '2018',
+    //         rating: 5,
+    //         testimonial: 'Sudah 6 tahun bermitra dengan PawsCommerce dan sangat puas! Mereka menyediakan produk aquatic terlengkap dengan kualitas terjamin. Sistem ordering yang mudah dan delivery yang cepat sangat membantu bisnis kami.',
+    //         avatar: 'https://ui-avatars.com/api/?name=Rini+Susanti&background=06b6d4&color=fff'
+    //     },
+    //     { 
+    //         id: 7, 
+    //         name: 'Eko Prasetyo',
+    //         business: 'Feathered Friends Aviary',
+    //         category: 'Bird Breeder',
+    //         since: '2021',
+    //         rating: 5,
+    //         testimonial: 'Penangkaran burung kami memerlukan produk-produk spesifik untuk burung eksotis. PawsCommerce tidak hanya menyediakan produk yang kami butuhkan, tapi juga memberikan konsultasi tentang produk terbaik untuk setiap jenis burung.',
+    //         avatar: 'https://ui-avatars.com/api/?name=Eko+Prasetyo&background=f59e0b&color=fff'
+    //     },
+    //     { 
+    //         id: 8, 
+    //         name: 'Maria Angelina',
+    //         business: 'Pet Insurance Plus',
+    //         category: 'Pet Insurance',
+    //         since: '2023',
+    //         rating: 5,
+    //         testimonial: 'Baru bergabung tahun ini tapi sudah sangat terkesan dengan profesionalisme PawsCommerce. Mereka membantu kami memahami kebutuhan pet owners dan menyediakan produk-produk yang sesuai dengan standar kesehatan hewan.',
+    //         avatar: 'https://ui-avatars.com/api/?name=Maria+Angelina&background=ef4444&color=fff'
+    //     },
+    // ];
 
     const getPartnershipColor = (partnership) => {
         switch(partnership) {
@@ -136,15 +136,15 @@ export default function ClientsUser() {
 
                     {/* Testimonials Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                        {testimonials.map((testimonial) => (
+                        {clients.map((client) => (
                             <div
-                                key={testimonial.id}
+                                key={client.id}
                                 className="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden border-2 border-gray-100"
                             >
                                 <div className="p-6">
                                     {/* Rating */}
                                     <div className="flex items-center gap-1 mb-4">
-                                        {[...Array(testimonial.rating)].map((_, index) => (
+                                        {[...Array(client.rating)].map((_, index) => (
                                             <svg
                                                 key={index}
                                                 className="w-5 h-5 text-yellow-400 fill-current"
@@ -155,27 +155,25 @@ export default function ClientsUser() {
                                         ))}
                                     </div>
 
-                                    {/* Testimonial Text */}
+                                    {/* client Text */}
                                     <p className="text-gray-700 mb-6 leading-relaxed italic">
-                                        "{testimonial.testimonial}"
+                                        "{client.review}"
                                     </p>
 
                                     {/* Author Info */}
                                     <div className="flex items-center justify-between pt-4 border-t-2 border-gray-100">
                                         <div className="flex items-center gap-4">
                                             <img
-                                                src={testimonial.avatar}
-                                                alt={testimonial.name}
+                                                src={`/storage/${client.image}`}
+                                                alt={client.name}
                                                 className="w-14 h-14 rounded-full border-2 border-orange-200"
                                             />
                                             <div>
-                                                <p className="font-bold text-gray-900">{testimonial.name}</p>
-                                                <p className="text-sm text-gray-600 font-medium">{testimonial.business}</p>
-                                                <p className="text-xs text-gray-500">{testimonial.category}</p>
+                                                <p className="font-bold text-gray-900">{client.name}</p>
+                                                <p className="text-sm text-gray-600 font-medium">{client.company}</p>
+                                                <p className="text-xs text-gray-500">{client.role}</p>
                                             </div>
                                         </div>
-
-                                        
                                     </div>
                                 </div>
                             </div>

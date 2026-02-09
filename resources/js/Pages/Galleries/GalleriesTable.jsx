@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, Link, router } from '@inertiajs/react';
+import { Head, Link, router, useForm } from '@inertiajs/react';
 import { useState } from 'react';
 
 export default function GalleriesAdmin({galleries}) {
@@ -7,6 +7,8 @@ export default function GalleriesAdmin({galleries}) {
     const [searchQuery, setSearchQuery] = useState('');
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [selectedGallery, setSelectedGallery] = useState(null);
+
+    const {delete: destroy} = useForm();
 
     const categories = ['All', 'Adoption', 'Workshop', 'Training', 'Competition', 'Community', 'Events', 'Health'];
 
@@ -31,10 +33,13 @@ export default function GalleriesAdmin({galleries}) {
         setShowDeleteModal(true);
     };
 
-    const confirmDelete = () => {
-        console.log('Deleting gallery:', selectedGallery.id);
-        setShowDeleteModal(false);
-        setSelectedGallery(null);
+    const confirmDelete = (id) => {
+        destroy(route('galleries.destroy', id), {
+            onSuccess: () => {
+                setShowDeleteModal(false);
+                setSelectedGallery(null);
+            }
+        })
     };
 
     const filteredGalleries = galleries
@@ -59,7 +64,7 @@ export default function GalleriesAdmin({galleries}) {
                     {/* Stats Section */}
                     <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
                         <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">Statistik Galeri</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
                             <div className="text-center bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl">
                                 <div className="text-4xl font-bold text-orange-600 mb-2">{galleries.length}</div>
                                 <p className="text-sm text-gray-700 font-medium">Total Galeri</p>
@@ -69,16 +74,6 @@ export default function GalleriesAdmin({galleries}) {
                                     {categories.length - 1}
                                 </div>
                                 <p className="text-sm text-gray-700 font-medium">Kategori</p>
-                            </div>
-                            <div className="text-center bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
-                                <div className="text-4xl font-bold text-blue-600 mb-2">
-                                    {galleries.filter(g => g.category === 'Events').length}
-                                </div>
-                                <p className="text-sm text-gray-700 font-medium">Events</p>
-                            </div>
-                            <div className="text-center bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
-                                <div className="text-4xl font-bold text-green-600 mb-2">2024</div>
-                                <p className="text-sm text-gray-700 font-medium">Update Terbaru</p>
                             </div>
                         </div>
                     </div>
@@ -320,7 +315,7 @@ export default function GalleriesAdmin({galleries}) {
                                     Batal
                                 </button>
                                 <button
-                                    onClick={confirmDelete}
+                                    onClick={() => confirmDelete(selectedGallery.id)}
                                     className="px-6 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg hover:from-red-600 hover:to-red-700 transition duration-150 font-bold shadow-md"
                                 >
                                     Hapus

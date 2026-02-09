@@ -41,11 +41,19 @@ export default function AuthenticatedLayout({ header, children }) {
                                 )}
 
                                 <NavLink
+                                    href={route("home")}
+                                    active={route().current("home")}
+                                >
+                                    Home
+                                </NavLink>
+
+                                <NavLink
                                     href={route("about-us")}
                                     active={route().current("about-us")}
                                 >
                                     About Us
                                 </NavLink>
+
                                 <NavLink
                                     href={route("company-profile")}
                                     active={route().current("company-profile")}

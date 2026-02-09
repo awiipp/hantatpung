@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -48,14 +50,22 @@ Route::get('/galleries/{id}/edit', [GalleryController::class, 'edit'])->name('ga
 Route::get('/galleries/{id}/edit', [GalleryController::class, 'edit'])->name('galleries.edit');
 Route::delete('/galleries/{id}', [GalleryController::class, 'destroy'])->name('galleries.destroy');
 
-Route::get('/home', fn () => Inertia::render('Home/Home'))->name('home');
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+Route::get('/clients/table', [ClientController::class, 'table'])->name('clients.table');
+Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
+Route::put('/clients/{id}', [ClientController::class, 'update'])->name('clients.update');
+Route::delete('/clients/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/contact/table', [ContactController::class, 'table'])->name('contact.table');
+Route::delete('/contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', fn () => Inertia::render('AboutUs/AboutUs'))->name('about-us');
 Route::get('/company-profile', fn () => Inertia::render('CompanyProfile/CompanyProfile'))->name('company-profile');
-Route::get('/contact', fn () => Inertia::render('Contact/Contact'))->name('contact');
 Route::get('/events', fn () => Inertia::render('Events/Events'))->name('events.index');
 Route::get('/events/table', fn () => Inertia::render('Events/EventsTable'))->name('events.table');
-Route::get('/clients', fn () => Inertia::render('Clients/Clients'))->name('clients.index');
-Route::get('/clients/table', fn () => Inertia::render('Clients/ClientsTable'))->name('clients.table');
 
 
 require __DIR__.'/auth.php';

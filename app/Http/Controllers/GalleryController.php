@@ -65,11 +65,43 @@ class GalleryController extends Controller
     
     public function update(Request $request, $id)
     {
-        // 
+        $gallery = Gallery::find($id);
+
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'string'],
+            'category' => ['required', 'string'],
+            'date' => ['required', 'date'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+        ]);
+
+        $validated = $validator->validated();
+
+        // file handler
+        if ($request->hasFile('image')) {
+            if ($gallery->image && Storage::disk('public')->exists($gallery->image)) {
+                Storage::disk('public')->delete($gallery->image);
+            }
+
+            $validated['image'] = Storage::disk('public')->put('galeries', $request->file('image'));
+        } else {
+            unset($validated['image']);
+        }
+
+        $gallery->update($validated);
+        return redirect()->route('galleries.table');
+
     }
     
     public function destroy($id)
     {
-        // 
+        $gallery = Gallery::find($id);
+
+        if ($gallery->image && Storage::disk('public')->exists($gallery->image)) {
+            Storage::disk('public')->delete($gallery->image);
+        }
+
+        $gallery->delete();
+
+        return redirect()->back();
     }
 }

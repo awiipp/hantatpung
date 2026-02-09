@@ -6,102 +6,6 @@
      const [selectedCategory, setSelectedCategory] = useState('All');
      const [selectedPetType, setSelectedPetType] = useState('All');
  
-     // const products = [
-     //     { 
-     //         id: 1, 
-     //         name: 'Premium Dog Food - Adult Breed', 
-     //         category: 'Food',
-     //         petType: 'Dog',
-     //         price: 459000,
-     //         originalPrice: 550000,
-     //         image: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400',
-     //         weight: '5kg'
-     //     },
-     //     { 
-     //         id: 2, 
-     //         name: 'Cat Scratching Post Tower', 
-     //         category: 'Toys',
-     //         petType: 'Cat',
-     //         price: 899000,
-     //         rating: 4.7,
-     //         reviews: 156,
-     //         image: 'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400',
-     //         badge: null,
-     //         weight: null
-     //     },
-     //     { 
-     //         id: 3, 
-     //         name: 'Automatic Pet Feeder', 
-     //         category: 'Accessories',
-     //         petType: 'All',
-     //         price: 1299000,
-     //         originalPrice: 1599000,
-     //         rating: 4.6,
-     //         reviews: 98,
-     //         image: 'https://images.unsplash.com/photo-1591768575383-310ff1cc0f8d?w=400',
-     //         weight: null
-     //     },
-     //     { 
-     //         id: 4, 
-     //         name: 'Natural Cat Litter - Unscented', 
-     //         category: 'Hygiene',
-     //         petType: 'Cat',
-     //         price: 185000,
-     //         rating: 4.9,
-     //         reviews: 312,
-     //         image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400',
-     //         weight: '10L'
-     //     },
-     //     { 
-     //         id: 5, 
-     //         name: 'Orthopedic Dog Bed - Large', 
-     //         category: 'Accessories',
-     //         petType: 'Dog',
-     //         price: 1450000,
-     //         rating: 4.8,
-     //         reviews: 167,
-     //         image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400',
-     //         badge: null,
-     //         weight: null
-     //     },
-     //     { 
-     //         id: 6, 
-     //         name: 'Interactive Cat Toy Set', 
-     //         category: 'Toys',
-     //         petType: 'Cat',
-     //         price: 275000,
-     //         originalPrice: 350000,
-     //         rating: 4.5,
-     //         reviews: 203,
-     //         image: 'https://images.unsplash.com/photo-1591871937573-74dbba515c4c?w=400',
-     //         weight: null
-     //     },
-     //     { 
-     //         id: 7, 
-     //         name: 'Durable Chew Rope Toy', 
-     //         category: 'Toys',
-     //         petType: 'Dog',
-     //         price: 149000,
-     //         rating: 4.6,
-     //         reviews: 145,
-     //         image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400',
-     //         badge: null,
-     //         weight: null
-     //     },
-     //     { 
-     //         id: 8, 
-     //         name: 'Pet Grooming Brush Kit', 
-     //         category: 'Hygiene',
-     //         petType: 'All',
-     //         price: 325000,
-     //         rating: 4.7,
-     //         reviews: 189,
-     //         image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400',
-     //         badge: null,
-     //         weight: null
-     //     },
-     // ];
- 
      const categories = ['All', 'Food', 'Toys', 'Accessories', 'Hygiene'];
      const petTypes = ['All', 'Dog', 'Cat', 'Bird', 'Fish'];
  
@@ -111,29 +15,6 @@
              currency: 'IDR',
              minimumFractionDigits: 0
          }).format(price);
-     };
- 
-     const renderStars = (rating) => {
-         return (
-             <div className="flex items-center gap-1">
-                 {[1, 2, 3, 4, 5].map((star) => (
-                     <svg
-                         key={star}
-                         className={`w-4 h-4 ${
-                             star <= Math.floor(rating)
-                                 ? 'text-amber-400 fill-current'
-                                 : star - 0.5 <= rating
-                                 ? 'text-amber-400 fill-current'
-                                 : 'text-gray-300'
-                         }`}
-                         viewBox="0 0 20 20"
-                     >
-                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                     </svg>
-                 ))}
-                 <span className="text-sm text-gray-600 ml-1">({rating})</span>
-             </div>
-         );
      };
  
      const filteredProducts = products.filter(product => {
@@ -227,6 +108,12 @@
                                      <span className="absolute top-3 right-3 px-3 py-1 bg-white/90 backdrop-blur-sm text-orange-700 text-xs font-semibold rounded-full border border-orange-200">
                                          {product.pet_type}
                                      </span>
+
+                                     {product.status === 'soldout' && (
+                                        <span className="absolute top-3 left-3 px-3 py-1 bg-red-500 backdrop-blur-sm text-orange-50 text-xs font-semibold rounded-full border-2 border-orange-400">
+                                         Sold Out
+                                        </span>
+                                     )}
                                  </div>
  
                                  {/* Content */}
@@ -262,7 +149,7 @@
                                      </div>
  
                                      {/* Add to Cart Button */}
-                                     <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 flex items-center justify-center gap-2 font-semibold shadow-md hover:shadow-lg">
+                                     <Link className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 flex items-center justify-center gap-2 font-semibold shadow-md hover:shadow-lg">
                                          <svg
                                              className="w-5 h-5"
                                              fill="none"
@@ -276,8 +163,8 @@
                                                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                                              />
                                          </svg>
-                                         Add to Cart
-                                     </button>
+                                         Order Sekarang
+                                     </Link>
                                  </div>
                              </div>
                          ))}
