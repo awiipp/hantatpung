@@ -1,0 +1,9 @@
+- product (sambung fe) -detail
+- article (sambung fe) -filter, show
+- galleries (be) -edit delete
+- clients (create, be)
+- order (fe, be)
+- dashboard 
+- home (be)
+- contact (opsional)
+- event (create, be)

@@ -2,63 +2,6 @@
  import { Head, Link } from "@inertiajs/react";
  
  export default function ArticleUser({ articles }) {
-     // Sample data jika tidak ada props
-     const sampleArticles = articles || [
-         {
-             id: 1,
-             title: "Panduan Lengkap Merawat Anak Anjing Pertama Anda",
-             excerpt: "Tips penting untuk pet parents baru! Pelajari cara merawat puppy mulai dari makanan, vaksinasi, toilet training, hingga sosialisasi yang tepat untuk tumbuh kembang optimal.",
-             category: "Anjing",
-             author: "Dr. Sarah Wijaya",
-             published_date: "2024-01-25",
-             image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400"
-         },
-         {
-             id: 2,
-             title: "5 Makanan yang Berbahaya untuk Kucing Kesayangan",
-             excerpt: "Kenali makanan yang toxic untuk kucing! Artikel ini membahas daftar lengkap makanan yang harus dihindari dan alternatif snack sehat untuk si meong.",
-             category: "Kucing",
-             author: "Dr. Sarah Wijaya",
-             published_date: "2024-01-23",
-             image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400"
-         },
-         {
-             id: 3,
-             title: "Cara Melatih Burung Peliharaan Agar Bisa Berbicara",
-             excerpt: "Panduan step-by-step melatih burung peliharaan untuk meniru suara dan kata-kata. Teknik yang terbukti efektif dan tips dari para ahli.",
-             category: "Burung",
-             author: "Budi Santoso",
-             published_date: "2024-01-20",
-             image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400"
-         },
-         {
-             id: 4,
-             title: "Review: 10 Dry Food Anjing Terbaik untuk Berbagai Ras",
-             excerpt: "Perbandingan lengkap brand dry food premium untuk anjing. Dari puppy hingga senior, temukan makanan terbaik sesuai kebutuhan nutrisi anjing Anda.",
-             category: "Anjing",
-             author: "Linda Kusuma",
-             published_date: "2024-01-18",
-             image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400"
-         },
-         {
-             id: 5,
-             title: "Tanda-Tanda Kucing Anda Stress dan Cara Mengatasinya",
-             excerpt: "Pelajari bahasa tubuh kucing untuk mendeteksi stress sejak dini. Solusi praktis menciptakan lingkungan yang nyaman dan menenangkan untuk si kucing.",
-             category: "Kucing",
-             author: "Dr. Sarah Wijaya",
-             published_date: "2024-01-15",
-             image: "https://images.unsplash.com/photo-1573865526739-10c1dd66bc0e?w=400"
-         },
-         {
-             id: 6,
-             title: "Setup Aquarium untuk Pemula: Panduan Praktis",
-             excerpt: "Mulai hobi memelihara ikan hias dengan benar! Panduan memilih aquarium, filter, dekorasi, dan jenis ikan yang cocok untuk pemula.",
-             category: "Ikan",
-             author: "Budi Santoso",
-             published_date: "2024-01-12",
-             image: "https://images.unsplash.com/photo-1520990142052-1c211d1f648f?w=400"
-         }
-     ];
  
      // Category colors mapping
      const categoryColors = {
@@ -107,7 +50,7 @@
  
                      {/* Articles Grid */}
                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                         {sampleArticles.map((article) => (
+                         {articles.map((article) => (
                              <div
                                  key={article.id}
                                  className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1"
@@ -115,7 +58,7 @@
                                  {/* Image */}
                                  <div className="h-48 bg-gray-200 overflow-hidden relative">
                                      <img
-                                         src={article.image}
+                                     src={`/storage/${article.image}`}
                                          alt={article.title}
                                          className="w-full h-full object-cover hover:scale-110 transition duration-500"
                                      />
