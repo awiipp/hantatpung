@@ -13,40 +13,42 @@ export default function AuthenticatedLayout({ header, children }) {
 
     return (
         <div className="min-h-screen bg-gray-100">
-                    <nav className="border-b border-gray-100 bg-white">
-                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                            <div className="flex h-16 justify-between">
-                                <div className="flex">
-                                    <div className="flex shrink-0 items-center">
-                                        {/* Logo Image */}
-                                        <img
-                                            src="/images/kkeomchiz.jpeg"
-                                            alt="Pawscommerce Logo"
-                                            className="w-10 h-10 rounded-lg mr-3 object-cover"
-                                        />
-                                        {/* Brand Name */}
-                                        <h1 className="font-bold text-xl text-gray-900">
-                                            Pawscommerce
-                                        </h1>
-                                    </div>
+            <nav className="border-b border-gray-100 bg-white">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="flex h-16 justify-between">
+                        <div className="flex">
+                            <div className="flex shrink-0 items-center">
+                                {/* Logo Image */}
+                                <img
+                                    src="/images/kkeomchiz.jpeg"
+                                    alt="Pawscommerce Logo"
+                                    className="w-10 h-10 rounded-lg mr-3 object-cover"
+                                />
+                                {/* Brand Name */}
+                                <h1 className="font-bold text-xl text-gray-900">
+                                    Pawscommerce
+                                </h1>
+                            </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
-                                    href={route("dashboard")}
-                                    active={route().current("dashboard")}
-                                >
-                                    Dashboard
-                                </NavLink>
+                                {user && (
+                                    <NavLink
+                                        href={route("dashboard")}
+                                        active={route().current("dashboard")}
+                                    >
+                                        Dashboard
+                                    </NavLink>
+                                )}
 
                                 <NavLink
                                     href={route("about-us")}
-                                    active={route().current('about-us')}
+                                    active={route().current("about-us")}
                                 >
                                     About Us
                                 </NavLink>
                                 <NavLink
                                     href={route("company-profile")}
-                                    active={route().current('company-profile')}
+                                    active={route().current("company-profile")}
                                 >
                                     Profile
                                 </NavLink>
@@ -60,7 +62,7 @@ export default function AuthenticatedLayout({ header, children }) {
 
                                 <NavLink
                                     href={route("contact")}
-                                    active={route().current('contact')}
+                                    active={route().current("contact")}
                                 >
                                     Contact
                                 </NavLink>
@@ -112,10 +114,10 @@ export default function AuthenticatedLayout({ header, children }) {
                                     </Dropdown>
                                 ) : (
                                     <Link
-                                        href={route('login')}
+                                        href={route("login")}
                                         className="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none"
                                     >
-                                       Login
+                                        Login
                                     </Link>
                                 )}
                             </div>
@@ -225,15 +227,32 @@ export default function AuthenticatedLayout({ header, children }) {
                     )}
 
                     <nav className="px-8 py-5 space-y-4 flex flex-col">
+                        {user && (
+                            <NavLink
+                                href={route("products.table")}
+                                active={route().current("products.*")}
+                            >
+                                Products
+                            </NavLink>
+                        )}
+
                         <NavLink
-                            href={user ? route("articles.table") : route("articles.index")}
+                            href={
+                                user
+                                    ? route("articles.table")
+                                    : route("articles.index")
+                            }
                             active={route().current("articles.*")}
                         >
                             Article
                         </NavLink>
 
                         <NavLink
-                            href={user ? route("events.table") : route("events.index")}
+                            href={
+                                user
+                                    ? route("events.table")
+                                    : route("events.index")
+                            }
                             active={route().current("events.*")}
                         >
                             Event
@@ -255,7 +274,56 @@ export default function AuthenticatedLayout({ header, children }) {
                     </nav>
                 </aside>
 
-                <main className="flex-1">{children}</main>
+                <main className="flex-1">
+                    {children}
+                    <footer className="bg-gradient-to-r from-orange-600 to-pink-600 text-white py-8 px-10">
+                        <div className="max-w-6xl mx-auto grid grid-cols-3 gap-8 mb-6">
+                            <div>
+                                <h4 className="font-bold mb-3 flex items-center gap-2">
+                                    PawsCommerce
+                                </h4>
+                                <p className="text-orange-100 text-sm">
+                                    Sahabat terbaik hewan kesayangan Anda sejak
+                                    2026
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold mb-3">Menu Cepat</h4>
+                                <ul className="space-y-2 text-orange-100 text-sm">
+                                    <li className="cursor-pointer hover:text-white">
+                                        Tentang Kami
+                                    </li>
+                                    <li className="cursor-pointer hover:text-white">
+                                        Hubungi Kami
+                                    </li>
+                                    <li className="cursor-pointer hover:text-white">
+                                        FAQ
+                                    </li>
+                                    <li className="cursor-pointer hover:text-white">
+                                        Tips Perawatan
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold mb-3">Kontak</h4>
+                                <ul className="space-y-2 text-orange-100 text-sm">
+                                    <li>info@pawscommerce.com</li>
+                                    <li>0812-PAWS-CARE</li>
+                                    <li>Jakarta, Indonesia</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="border-t border-orange-400 pt-4 text-center text-orange-100 text-sm">
+                            <p>
+                                &copy; 2026 PawsCommerce. Dibuat dengan hati
+                                untuk hewan kesayangan Anda
+                            </p>
+                        </div>
+                    </footer>
+                </main>
             </div>
         </div>
     );

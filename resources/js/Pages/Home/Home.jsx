@@ -103,41 +103,6 @@
                      </div>
                  </div>
              </div>
- 
-             {/* Footer */}
-             <footer className="bg-gradient-to-r from-orange-600 to-pink-600 text-white py-8 px-4">
-                 <div className="max-w-6xl mx-auto grid grid-cols-3 gap-8 mb-6">
-                     <div>
-                         <h4 className="font-bold mb-3 flex items-center gap-2">
-                          PawsCommerce
-                         </h4>
-                         <p className="text-orange-100 text-sm">Sahabat terbaik hewan kesayangan Anda sejak 2026</p>
-                     </div>
- 
-                     <div>
-                         <h4 className="font-bold mb-3">Menu Cepat</h4>
-                         <ul className="space-y-2 text-orange-100 text-sm">
-                             <li className="cursor-pointer hover:text-white">Tentang Kami</li>
-                             <li className="cursor-pointer hover:text-white">Hubungi Kami</li>
-                             <li className="cursor-pointer hover:text-white">FAQ</li>
-                             <li className="cursor-pointer hover:text-white">Tips Perawatan</li>
-                         </ul>
-                     </div>
- 
-                     <div>
-                         <h4 className="font-bold mb-3">Kontak</h4>
-                         <ul className="space-y-2 text-orange-100 text-sm">
-                             <li>info@pawscommerce.com</li>
-                             <li>0812-PAWS-CARE</li>
-                             <li>Jakarta, Indonesia</li>
-                         </ul>
-                     </div>
-                 </div>
- 
-                 <div className="border-t border-orange-400 pt-4 text-center text-orange-100 text-sm">
-                     <p>&copy; 2026 PawsCommerce. Dibuat dengan hati untuk hewan kesayangan Anda</p>
-                 </div>
-             </footer>
          </AuthenticatedLayout>
      );
  }

@@ -1,21 +1,22 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
 
-export default function ArticleCreate() {
+export default function ArticleEdit({ article }) {
     const { data, setData, post, processing, errors } = useForm({
-        title: "",
-        excerpt: "",
-        content: "",
-        category: "",
-        status: "Draft",
+        title: article.title,
+        excerpt: article.excerpt,
+        content: article.content,
+        category: article.category,
+        status: article.status,
         image: null,
+        _method: "PUT"
     });
 
     const categories = ["Anjing", "Kucing", "Burung", "Ikan", "Reptil", "Tips"];
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route("articles.store"), {
+        post(route("articles.update", article.id), {
             forceFormData: true,
         });
         //console.log('Form data:', data);
@@ -23,7 +24,7 @@ export default function ArticleCreate() {
 
     return (
         <AuthenticatedLayout>
-            <Head title="Buat Artikel Baru" />
+            <Head title="Edit Artikel" />
 
             <div className="py-12">
                 <div className="mx-auto max-w-4xl sm:px-6 lg:px-8">
@@ -34,10 +35,10 @@ export default function ArticleCreate() {
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <h2 className="text-2xl font-bold text-gray-800">
-                                            Buat Artikel Baru
+                                            Edit Artikel
                                         </h2>
                                         <p className="text-sm text-gray-600 mt-1">
-                                            Tambahkan artikel tips dan panduan
+                                            Edit artikel tips dan panduan
                                             perawatan hewan
                                         </p>
                                     </div>

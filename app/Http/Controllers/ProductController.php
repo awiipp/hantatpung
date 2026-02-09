@@ -13,15 +13,26 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Products/Products');
+        $products = Product::latest()->get();
+        
+        return Inertia::render('Products/Products', [
+        'products' => $products,
+        ]);
     }
 
     public function table()
     {
-         $products = Product::latest()->get();
+        $products = Product::latest()->get();
+        $total = Product::count();
+        $available = Product::where('status', 'available')->count();
+        $soldout = Product::where('status', 'soldout')->count();
+        
 
         return Inertia::render('Products/ProductsTable', [
-            'products' => $products, 
+            'products' => $products,
+            'total' => $total, 
+            'available' => $available,
+            'soldout' => $soldout,
         ]);
     }
 
@@ -46,7 +57,7 @@ class ProductController extends Controller
 
         // file handler
         if ($request->hasFile('image')) {
-            $validated['image'] = Storage::disk('public')->put('products', $request-> file('image'));
+            $validated['image'] = Storage::disk('public')->put('products', $request->file('image'));
         }
 
         Product::create($validated);
@@ -98,7 +109,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-         if ($product->image && Storage::disk('public')->exists($product->image)) {
+        if ($product->image && Storage::disk('public')->exists($product->image)) {
             Storage::disk('public')->delete($product->image);
         }
 

@@ -43,19 +43,27 @@
                          <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
                              <div className="bg-gradient-to-br from-pink-100 to-pink-200 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
                                 <FaEnvelope className="text-3xl text-pink-500" />
-                             </div>
-                             <h4 className="font-bold text-gray-800 mb-1">Email</h4>
-                             <p className="text-sm text-pink-600 font-semibold">info@pawscommerce.id</p>
-                         </div>
-                         <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
-                             <div className="bg-gradient-to-br from-green-100 to-green-200 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            </div>
+                            <h4 className="font-bold text-gray-800 mb-1">
+                                Email
+                            </h4>
+                            <p className="text-sm text-pink-600 font-semibold">
+                                info@pawscommerce.id
+                            </p>
+                        </div>
+                        <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
+                            <div className="bg-gradient-to-br from-green-100 to-green-200 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
                                 <FaWhatsapp className="text-3xl text-green-500" />
-                             </div>
-                             <h4 className="font-bold text-gray-800 mb-1">WhatsApp</h4>
-                             <p className="text-sm text-green-600 font-semibold">Chat Langsung</p>
-                         </div>
-                         <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
-                             <div className="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            </div>
+                            <h4 className="font-bold text-gray-800 mb-1">
+                                WhatsApp
+                            </h4>
+                            <p className="text-sm text-green-600 font-semibold">
+                                Chat Langsung
+                            </p>
+                        </div>
+                        <div className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
+                            <div className="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
                                 <FaLocationArrow className="text-3xl text-blue-500" />
                              </div>
                              <h4 className="font-bold text-gray-800 mb-1">Lokasi</h4>
