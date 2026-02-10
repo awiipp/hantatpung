@@ -117,11 +117,9 @@ export default function ProductShow({ product }) {
 
                             {/* Action Buttons */}
                             <div className="flex gap-4 pt-6 border-t-2 border-gray-200">
-                                <button
+                                <Link
+                                    href={route('orders.create', product.id)}
                                     className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-8 py-4 rounded-lg hover:from-green-600 hover:to-emerald-600 transition duration-150 font-bold shadow-lg inline-flex items-center gap-2 text-lg"
-                                    onClick={() => {
-                                        alert("Fitur order akan segera hadir!");
-                                    }}
                                 >
                                     <svg
                                         className="w-6 h-6"
@@ -137,7 +135,7 @@ export default function ProductShow({ product }) {
                                         />
                                     </svg>
                                     Order Sekarang
-                                </button>
+                                </Link>
                                 <Link
                                     href={route("products.edit", product.id)}
                                     className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-pink-600 transition duration-150 font-semibold shadow-md inline-flex items-center gap-2"
