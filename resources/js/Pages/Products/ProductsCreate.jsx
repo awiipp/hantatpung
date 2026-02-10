@@ -25,7 +25,6 @@ export default function ProductCreate() {
         'Cat',
         'Bird',
         'Fish',
-        'Rabbit'
     ];
 
     const handleSubmit = (e) => {

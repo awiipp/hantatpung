@@ -1,5 +1,5 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 export default function CompanyProfile() {
     return (
@@ -327,19 +327,18 @@ export default function CompanyProfile() {
                     {/* CTA Section */}
                     <div className="mt-8 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl p-8 text-center text-white shadow-xl">
                         <h3 className="text-3xl font-bold mb-3">
-                            Bergabunglah dengan Keluarga PawsCommerce!
+                            Temukan Produk Terbaik untuk Hewan Kesayangan Anda
                         </h3>
                         <p className="text-lg mb-6 text-orange-100">
-                            Mulai memberikan yang terbaik untuk hewan kesayangan
-                            Anda hari ini
+                            Jelajahi koleksi produk pilihan untuk kesehatan, kenyamanan, dan kebahagiaan hewan kesayangan Anda.
                         </p>
                         <div className="flex gap-4 justify-center">
-                            <button className="px-8 py-3 bg-white text-orange-600 rounded-full font-bold hover:bg-orange-50 transition shadow-lg">
+                            <Link href={route('products.index')} className="px-8 py-3 bg-white text-orange-600 rounded-full font-bold hover:bg-orange-50 transition shadow-lg">
                                 Belanja Sekarang
-                            </button>
-                            <button className="px-8 py-3 bg-orange-600 text-white rounded-full font-bold hover:bg-orange-700 transition shadow-lg">
+                            </Link>
+                            <Link href={route('contact')} className="px-8 py-3 bg-orange-600 text-white rounded-full font-bold hover:bg-orange-700 transition shadow-lg">
                                 Hubungi Kami
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

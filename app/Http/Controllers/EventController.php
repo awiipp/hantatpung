@@ -12,7 +12,13 @@ class EventController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Events/Events');
+        return Inertia::render('Events/Events', [
+            'events' => Event::latest()->get(),
+            'total' => Event::count(),
+            'upcoming' => Event::where('status', 'Upcoming')->count(),
+            'active' => Event::where('status', 'Active')->count(),
+            'ended' => Event::where('status', 'Ended')->count(),
+        ]);
     }
 
     public function table()

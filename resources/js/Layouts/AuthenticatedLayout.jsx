@@ -8,8 +8,7 @@ import { useState } from "react";
 export default function AuthenticatedLayout({ header, children }) {
     const user = usePage().props.auth?.user ?? null;
 
-    const [showingNavigationDropdown, setShowingNavigationDropdown] =
-        useState(false);
+    const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -183,7 +182,6 @@ export default function AuthenticatedLayout({ header, children }) {
                     <div className="space-y-1 pb-3 pt-2">
                         <ResponsiveNavLink
                             href={route("dashboard")}
-                            // active={route().current('dashboard')}
                         >
                             Dashboard
                         </ResponsiveNavLink>
@@ -283,10 +281,32 @@ export default function AuthenticatedLayout({ header, children }) {
                                     ? route("clients.table")
                                     : route("clients.index")
                             }
-                            active={route().current("clients.*")}
+                            active={route().current("clients*")}
                         >
-                            Clients
+                            Client & Review
                         </NavLink>
+
+                        {user && (
+                            <>
+                        <NavLink
+                            href={
+                                route("contact.table")
+                            }
+                            active={route().current("contact.table")}
+                        >
+                            Messages
+                        </NavLink>
+
+                        <NavLink
+                            href={
+                                route("orders")
+                            }
+                            active={route().current("orders")}
+                        >
+                            Orders
+                        </NavLink>
+                            </>
+                        )}
                     </nav>
                 </aside>
 

@@ -1,15 +1,14 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import {
     FaCalendar,
-    FaClock,
-    FaLocationArrow,
     FaMapPin,
     FaRegClock,
-    FaSearchLocation,
 } from "react-icons/fa";
 
 export default function EventShow({ event }) {
+    const user = usePage().props.auth?.user ?? null;
+
     const statusColors = {
         Active: "bg-green-100 text-green-800 border-green-200",
         Upcoming: "bg-blue-100 text-blue-800 border-blue-200",
@@ -197,17 +196,13 @@ export default function EventShow({ event }) {
                                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                                         <div>
                                             <h4 className="text-2xl font-bold mb-2">
-                                                🎯 Daftar Sekarang!
+                                                 Event Sedang Berlangsung!
                                             </h4>
                                             <p className="text-orange-100">
                                                 Jangan lewatkan kesempatan
-                                                mengikuti event ini. Slot
-                                                terbatas!
+                                                mengikuti event ini.  
                                             </p>
                                         </div>
-                                        <button className="bg-white text-orange-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-50 transition duration-150 shadow-lg whitespace-nowrap">
-                                            Daftar Event 🐾
-                                        </button>
                                     </div>
                                 </div>
                             )}
@@ -229,6 +224,7 @@ export default function EventShow({ event }) {
                             )}
 
                             {/* Action Buttons */}
+                            {user && (
                             <div className="flex gap-4 pt-6 border-t-2 border-gray-200">
                                 <Link
                                     href={route("events.edit", event.id)}
@@ -250,7 +246,7 @@ export default function EventShow({ event }) {
                                     Edit Event
                                 </Link>
                                 <Link
-                                    // href={route("events.destroy", event.id)}
+                                    href={route("events.destroy", event.id)}
                                     method="delete"
                                     as="button"
                                     className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition duration-150 font-semibold shadow-md inline-flex items-center gap-2"
@@ -280,6 +276,7 @@ export default function EventShow({ event }) {
                                     Hapus Event
                                 </Link>
                             </div>
+                            )}
                         </div>
                     </div>
                 </div>

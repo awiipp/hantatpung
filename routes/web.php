@@ -6,6 +6,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -14,14 +15,12 @@ use Inertia\Inertia;
 
 Route::get('/', fn() => redirect()->route('home'));
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 });
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
@@ -70,9 +69,11 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/contact/table', [ContactController::class, 'table'])->name('contact.table');
 Route::delete('/contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
+Route::get('/orders', [OrderController::class, 'index'])->name('orders');
 Route::get('/orders/{id}/create', [OrderController::class, 'create'])->name('orders.create');
-Route::post('/orders/{id}/', [OrderController::class, 'store'])->name('orders.store');
-
+Route::get('/orders/{id}/invoice', [OrderController::class, 'invoice'])->name('orders.invoice');
+Route::post('/orders/{id}', [OrderController::class, 'store'])->name('orders.store');
+Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', fn() => Inertia::render('AboutUs/AboutUs'))->name('about-us');

@@ -39,7 +39,7 @@ export default function ArticleUser({ articles }) {
         <AuthenticatedLayout>
             <Head title="Articles" />
 
-            <div className="py-12 bg-gradient-to-b from-orange-50 to-white">
+            <div className="py-12 bg-gradient-to-b from-orange-50 to-white min-h-[80vh]">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {/* Header */}
                     <div className="mb-8 text-center">

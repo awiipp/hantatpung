@@ -1,5 +1,5 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 export default function AboutUs() {
     return (
@@ -132,7 +132,6 @@ export default function AboutUs() {
                                 50+
                             </h4>
                             <p className="text-gray-600">Kota di Indonesia</p>
-                            <p className="text-xs text-gray-400 mt-1">🇮🇩</p>
                         </div>
 
                         <div className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition">
@@ -203,15 +202,14 @@ export default function AboutUs() {
                     {/* Call to Action */}
                     <div className="mt-8 bg-gradient-to-r from-orange-400 to-pink-500 rounded-lg shadow-lg p-8 text-center text-white">
                         <h3 className="text-2xl font-bold mb-3">
-                            Bergabunglah dengan Keluarga PawsCommerce!{" "}
+                            Kenali Kami Lebih Jauh
                         </h3>
                         <p className="mb-6">
-                            Dapatkan tips perawatan hewan, promo eksklusif, dan
-                            update produk terbaru
+                            PawsCommerce hadir sebagai partner terpercaya untuk memenuhi kebutuhan hewan kesayangan Anda'
                         </p>
-                        <button className="bg-white text-orange-500 px-8 py-3 rounded-full font-semibold hover:bg-orange-50 transition">
-                            Order Disini!
-                        </button>
+                        <Link href={route('company-profile')} className="bg-white text-orange-500 px-8 py-3 rounded-full font-semibold hover:bg-orange-50 transition">
+                        Profil Kami
+                        </Link>
                     </div>
                 </div>
             </div>

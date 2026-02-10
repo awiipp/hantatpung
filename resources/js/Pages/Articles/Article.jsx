@@ -1,7 +1,9 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 
 export default function ArticleShow({ article }) {
+    const user = usePage().props.auth?.user ?? null;
+
     // Category colors mapping
     const categoryColors = {
         Anjing: "bg-orange-100 text-orange-800 border-orange-200",
@@ -141,6 +143,7 @@ export default function ArticleShow({ article }) {
                             </div>
 
                             {/* Action Buttons */}
+                            {user && (
                             <div className="flex gap-4 pt-6 border-t-2 border-gray-200">
                                 <Link
                                     href={route("articles.edit", article.id)}
@@ -192,6 +195,7 @@ export default function ArticleShow({ article }) {
                                     Hapus Artikel
                                 </Link>
                             </div>
+                            )}
                         </div>
                     </div>
                 </div>

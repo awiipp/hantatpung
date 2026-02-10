@@ -26,7 +26,6 @@ export default function ProductEdit({ product }) {
         'Cat',
         'Bird',
         'Fish',
-        'Rabbit'
     ];
 
     const handleSubmit = (e) => {

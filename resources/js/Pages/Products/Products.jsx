@@ -92,7 +92,8 @@
                      {/* Products Grid */}
                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                          {filteredProducts.map((product) => (
-                             <div
+                             <Link
+                                 href={route('products.show', product.id)}
                                  key={product.id}
                                  className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100"
                              >
@@ -149,7 +150,7 @@
                                      </div>
  
                                      {/* Add to Cart Button */}
-                                     <Link className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 flex items-center justify-center gap-2 font-semibold shadow-md hover:shadow-lg">
+                                     <Link href={route('orders.create', product.id)} className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 flex items-center justify-center gap-2 font-semibold shadow-md hover:shadow-lg">
                                          <svg
                                              className="w-5 h-5"
                                              fill="none"
@@ -166,7 +167,7 @@
                                          Order Sekarang
                                      </Link>
                                  </div>
-                             </div>
+                             </Link>
                          ))}
                      </div>
  
