@@ -3,7 +3,7 @@ import { Head, Link } from "@inertiajs/react";
 
 export default function ProductAdmin({ products, total, available, soldout }) {
     console.log(products);
-    
+
     const categories = [
         "Food",
         "Toys",
@@ -21,7 +21,7 @@ export default function ProductAdmin({ products, total, available, soldout }) {
                     </h2>
                     <Link
                         href="/products/create"
-                        className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-5 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg font-semibold"
+                        className="bg-gradient-to-r from-orange-400 to-pink-500 text-white px-5 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg font-semibold"
                     >
                         + Add New Product
                     </Link>
@@ -121,7 +121,7 @@ export default function ProductAdmin({ products, total, available, soldout }) {
                     <div className="bg-white rounded-xl shadow-md overflow-hidden border border-orange-100">
                         <div className="overflow-x-auto">
                             <table className="w-full">
-                                <thead className="bg-gradient-to-r from-orange-500 to-orange-600 border-b">
+                                <thead className="bg-gradient-to-r from-orange-400 to-pink-500 border-b">
                                     <tr>
                                         <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
                                             Product

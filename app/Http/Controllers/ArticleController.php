@@ -31,6 +31,15 @@ class ArticleController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $article = Article::find($id);
+
+        return Inertia::render('Articles/Article', [
+            'article' => $article,
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Articles/ArticlesCreate');

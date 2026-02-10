@@ -70,21 +70,21 @@ export default function Article({ articles, published, draft }) {
                             {/* Articles Table */}
                             <div className="overflow-x-auto rounded-lg border border-gray-200">
                                 <table className="min-w-full divide-y divide-gray-200">
-                                    <thead className="bg-gradient-to-r from-orange-50 to-pink-50">
+                                    <thead className="bg-gradient-to-r from-orange-400 to-pink-500">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                                            <th className="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Artikel
                                             </th>
-                                            <th className="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                                            <th className="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Kategori
                                             </th>
-                                            <th className="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                                            <th className="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Tanggal
                                             </th>
-                                            <th className="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                                            <th className="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Status
                                             </th>
-                                            <th className="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                                            <th className="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Aksi
                                             </th>
                                         </tr>
@@ -180,8 +180,6 @@ export default function Article({ articles, published, draft }) {
                                     </tbody>
                                 </table>
                             </div>
-
-                            
                         </div>
                     </div>
                 </div>

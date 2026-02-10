@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
@@ -13,14 +14,14 @@ class ClientController extends Controller
     public function index()
     {
         return Inertia::render('Clients/Clients', [
-            'clients' => Client::latest()->get(), 
+            'clients' => Client::latest()->get(),
         ]);
     }
 
     public function table()
     {
         return Inertia::render('Clients/ClientsTable', [
-            'clients' => Client::latest()->get(), 
+            'clients' => Client::latest()->get(),
         ]);
     }
 
@@ -29,7 +30,7 @@ class ClientController extends Controller
         return Inertia::render('Clients/ClientsCreate');
     }
 
-     public function store(Request $request)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
@@ -40,7 +41,7 @@ class ClientController extends Controller
             'review' => ['required', 'string'],
         ]);
 
-         $validated = $validator->validated();
+        $validated = $validator->validated();
 
         // file handler
         if ($request->hasFile('image')) {
@@ -49,7 +50,11 @@ class ClientController extends Controller
 
         Client::create($validated);
 
-        return redirect()->route('clients.table');
+        if (Auth::user()) {
+            return redirect()->route('clients.table');
+        } else {
+            return redirect()->route('clients.index');
+        }
     }
 
     public function update(Request $request, $id)
@@ -65,7 +70,7 @@ class ClientController extends Controller
             'review' => ['required', 'string'],
         ]);
 
-         $validated = $validator->validated();
+        $validated = $validator->validated();
 
         // file handler
         if ($request->hasFile('image')) {
@@ -86,7 +91,7 @@ class ClientController extends Controller
     public function destroy($id)
     {
         $client = Client::find($id);
-        
+
         if ($client->image && Storage::disk('public')->exists($client->image)) {
             Storage::disk('public')->delete($client->image);
         }

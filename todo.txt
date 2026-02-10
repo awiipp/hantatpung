@@ -1,10 +1,12 @@
 - product (sambung fe) -detail
-- article (sambung fe) -filter, show
-- clients (create, be) -index
 - order (fe, be)
 - dashboard 
-- event (create, be)
+- event (create, be) -edit delete
+- edit dan delete hanya untuk admin
 
+DONE
 - galleries (be) DONE
 - contact (opsional) DONE
 - home (be) DONE
+- clients (create, be) DONE
+- article (sambung fe) DONE
