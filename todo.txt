@@ -1,7 +1,5 @@
-- product (sambung fe) -detail
 - order (fe, be)
 - dashboard 
-- event (create, be) -edit delete
 - edit dan delete hanya untuk admin
 
 DONE
@@ -10,3 +8,10 @@ DONE
 - home (be) DONE
 - clients (create, be) DONE
 - article (sambung fe) DONE
+- event (create, be) DONE
+- product (sambung fe) DONE
+
+order
+1. migration, model, controller(sambungin ke product)
+2. page: order create, order table (admin), invoice
+3. crud

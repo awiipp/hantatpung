@@ -28,7 +28,7 @@ export default function EventCreate({ event }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route("events.update"));
+        post(route("events.update", event.id));
     };
 
     const handleImageChange = (e) => {
@@ -321,7 +321,6 @@ export default function EventCreate({ event }) {
                                             accept="image/*"
                                             className="hidden"
                                             id="image-upload"
-                                            required
                                         />
                                         <label
                                             htmlFor="image-upload"

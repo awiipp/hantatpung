@@ -199,8 +199,14 @@ export default function ProductAdmin({ products, total, available, soldout }) {
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm">
                                                 <div className="flex gap-2">
+                                                     <Link
+                                                        href={route('products.show', product.id)}
+                                                        className="text-blue-600 hover:text-blue-800 font-semibold hover:bg-blue-50 px-3 py-1 rounded transition-all"
+                                                    >
+                                                        View
+                                                    </Link>
                                                     <Link
-                                                        href={`/products/${product.id}/edit`}
+                                                        href={route('products.edit', product.id)}
                                                         className="text-blue-600 hover:text-blue-800 font-semibold hover:bg-blue-50 px-3 py-1 rounded transition-all"
                                                     >
                                                         Edit

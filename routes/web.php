@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -28,9 +29,9 @@ Route::post('/products', [ProductController::class, 'store'])->name('products.st
 Route::get('/products/table', [ProductController::class, 'table'])->name('products.table');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
@@ -46,9 +47,9 @@ Route::post('/events', [EventController::class, 'store'])->name('events.store');
 Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
 Route::get('/events/table', [EventController::class, 'table'])->name('events.table');
 Route::get('/events/{id}/edit', [EventController::class, 'edit'])->name('events.edit');
-Route::get('/events/{id}', fn() => Inertia::render('Events/Event'))->name('events.show');
-// route put
-// route delete
+Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+Route::put('/events/{id}', [EventController::class, 'update'])->name('events.update');
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
 
 Route::get('/galleries', [GalleryController::class, 'index'])->name('galleries.index');
 Route::post('/galleries', [GalleryController::class, 'store'])->name('galleries.store');
@@ -65,8 +66,13 @@ Route::put('/clients/{id}', [ClientController::class, 'update'])->name('clients.
 Route::delete('/clients/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/contact/table', [ContactController::class, 'table'])->name('contact.table');
 Route::delete('/contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+Route::get('/orders/{id}/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/orders/{id}/', [OrderController::class, 'store'])->name('orders.store');
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', fn() => Inertia::render('AboutUs/AboutUs'))->name('about-us');

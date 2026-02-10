@@ -22,6 +22,13 @@ class EventController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        return Inertia::render('Events/Event', [
+            'event' => Event::find($id),
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Events/EventsCreate');
@@ -57,5 +64,50 @@ class EventController extends Controller
         return Inertia::render('Events/EventsEdit', [
             'event' => Event::find($id),
         ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $event = Event::find($id);
+
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'date' => ['required', 'date'],
+            'end_date' => ['required', 'date'],
+            'time' => ['required'],
+            'location' => ['required', 'string'],
+            'category' => ['required', 'string'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+            'status' => ['required', 'string'],
+        ]);
+
+        $validated = $validator->validated();
+
+        if ($request->hasFile('image')) {
+            if ($event->image && Storage::disk('public')->exists($event->image)) {
+                Storage::disk('public')->delete($event->image);
+            }
+
+            $validated['image'] = Storage::disk('public')->put('events', $request->file('image'));
+        } else {
+            unset($validated['image']);
+        }
+
+        $event->update($validated);
+
+        return redirect()->route('events.table');
+    }
+
+    public function destroy($id)
+    {
+        $event = Event::find($id);
+
+        if ($event->image && Storage::disk('public')->exists($event->image)) {
+            Storage::disk('public')->delete($event->image);
+        }
+
+        $event->delete();
+        return redirect()->route('events.table');
     }
 }

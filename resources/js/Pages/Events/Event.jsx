@@ -10,34 +10,12 @@ import {
 } from "react-icons/fa";
 
 export default function EventShow({ event }) {
-    // Dummy data untuk testing (hapus setelah integrasi backend)
-    const dummyEvent = {
-        id: 1,
-        title: "Workshop Grooming Anjing untuk Pemula",
-        description:
-            "Workshop ini akan mengajarkan teknik-teknik dasar grooming untuk anjing kesayangan Anda. Anda akan belajar cara memandikan, menyisir, memotong kuku, dan membersihkan telinga anjing dengan benar. Instruktur berpengalaman akan membimbing Anda step by step. Cocok untuk pemula yang ingin merawat anjing sendiri di rumah. Dapatkan sertifikat dan starter kit grooming!",
-        date: "2026-03-15",
-        end_date: "2026-03-15",
-        time: "09:00:00",
-        location: "Pet Care Center, Mall Kelapa Gading, Jakarta Utara",
-        category: "Workshop",
-        image: "events/workshop-grooming.png",
-        status: "Upcoming",
-        created_at: "2026-02-09 13:34:37",
-        updated_at: "2026-02-09 13:34:37",
-    };
-
-    // Gunakan dummy data jika event tidak tersedia
-    const eventData = event || dummyEvent;
-
-    // Status colors mapping
     const statusColors = {
         Active: "bg-green-100 text-green-800 border-green-200",
         Upcoming: "bg-blue-100 text-blue-800 border-blue-200",
         Ended: "bg-gray-100 text-gray-800 border-gray-200",
     };
 
-    // Category colors mapping
     const categoryColors = {
         Adoption: "bg-pink-100 text-pink-800 border-pink-200",
         Workshop: "bg-purple-100 text-purple-800 border-purple-200",
@@ -69,13 +47,12 @@ export default function EventShow({ event }) {
 
     return (
         <AuthenticatedLayout>
-            <Head title={eventData.title} />
+            <Head title={event.title} />
 
             <div className="py-12 bg-gradient-to-b from-orange-50 to-white">
                 <div className="mx-auto max-w-5xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-lg sm:rounded-xl">
                         <div className="p-8 text-gray-900">
-                            {/* Back Button */}
                             <Link
                                 href={route("events.index")}
                                 className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-800 font-semibold mb-6 transition duration-150"
@@ -96,46 +73,45 @@ export default function EventShow({ event }) {
                                 Kembali ke Daftar Event
                             </Link>
 
-                            {/* Event Header */}
                             <div className="mb-6">
                                 <div className="flex flex-wrap gap-3 items-center mb-8">
                                     <span
                                         className={`px-4 py-1.5 inline-flex text-sm leading-5 font-bold rounded-full border ${
                                             categoryColors[
-                                                eventData.category
+                                                event.category
                                             ] ||
                                             "bg-gray-100 text-gray-800 border-gray-200"
                                         }`}
                                     >
-                                        {eventData.category}
+                                        {event.category}
                                     </span>
                                     <span
                                         className={`px-4 py-1.5 inline-flex text-sm leading-5 font-bold rounded-full border ${
-                                            statusColors[eventData.status] ||
+                                            statusColors[event.status] ||
                                             "bg-gray-100 text-gray-800 border-gray-200"
                                         }`}
                                     >
-                                        {eventData.status}
+                                        {event.status}
                                     </span>
-                                    {eventData.status === "Upcoming" &&
-                                        getDaysUntil(eventData.date) > 0 && (
+                                    {event.status === "Upcoming" &&
+                                        getDaysUntil(event.date) > 0 && (
                                             <span className="px-4 py-1.5 inline-flex text-sm leading-5 font-bold rounded-full bg-gradient-to-r from-orange-100 to-pink-100 text-orange-700 border border-orange-200">
-                                                {getDaysUntil(eventData.date)}{" "}
+                                                {getDaysUntil(event.date)}{" "}
                                                 hari lagi
                                             </span>
                                         )}
                                 </div>
 
                                 <h1 className="text-4xl font-bold text-gray-900 mb-8">
-                                    {eventData.title}
+                                    {event.title}
                                 </h1>
                             </div>
 
                             {/* Featured Image */}
                             <div className="mb-8 rounded-xl overflow-hidden border-4 border-orange-200 shadow-lg">
                                 <img
-                                    src={`/storage/${eventData.image}`}
-                                    alt={eventData.title}
+                                    src={`/storage/${event.image}`}
+                                    alt={event.title}
                                     className="w-full h-[450px] object-cover"
                                 />
                             </div>
@@ -156,11 +132,11 @@ export default function EventShow({ event }) {
                                                     Tanggal Event
                                                 </p>
                                                 <p className="text-base font-bold text-gray-800">
-                                                    {formatDate(eventData.date)}
-                                                    {eventData.end_date &&
-                                                        eventData.end_date !==
-                                                            eventData.date &&
-                                                        ` - ${formatDate(eventData.end_date)}`}
+                                                    {formatDate(event.date)}
+                                                    {event.end_date &&
+                                                        event.end_date !==
+                                                            event.date &&
+                                                        ` - ${formatDate(event.end_date)}`}
                                                 </p>
                                             </div>
                                         </div>
@@ -177,7 +153,7 @@ export default function EventShow({ event }) {
                                                     Waktu
                                                 </p>
                                                 <p className="text-base font-bold text-gray-800">
-                                                    {formatTime(eventData.time)}{" "}
+                                                    {formatTime(event.time)}{" "}
                                                     WIB
                                                 </p>
                                             </div>
@@ -195,7 +171,7 @@ export default function EventShow({ event }) {
                                                     Lokasi
                                                 </p>
                                                 <p className="text-base font-bold text-gray-800">
-                                                    {eventData.location}
+                                                    {event.location}
                                                 </p>
                                             </div>
                                         </div>
@@ -210,13 +186,13 @@ export default function EventShow({ event }) {
                                 </h3>
                                 <div className="bg-white p-6 rounded-lg border-l-4 border-orange-500 shadow-sm">
                                     <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                                        {eventData.description}
+                                        {event.description}
                                     </p>
                                 </div>
                             </div>
 
                             {/* Call to Action */}
-                            {eventData.status === "Active" && (
+                            {event.status === "Active" && (
                                 <div className="mb-8 bg-gradient-to-r from-orange-500 to-pink-500 p-6 rounded-xl shadow-xl text-white">
                                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                                         <div>
@@ -236,7 +212,7 @@ export default function EventShow({ event }) {
                                 </div>
                             )}
 
-                            {eventData.status === "Upcoming" && (
+                            {event.status === "Upcoming" && (
                                 <div className="mb-8 bg-gradient-to-r from-blue-500 to-cyan-500 p-6 rounded-xl shadow-xl text-white">
                                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                                         <div>
@@ -255,7 +231,7 @@ export default function EventShow({ event }) {
                             {/* Action Buttons */}
                             <div className="flex gap-4 pt-6 border-t-2 border-gray-200">
                                 <Link
-                                    href={route("events.edit", eventData.id)}
+                                    href={route("events.edit", event.id)}
                                     className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-pink-600 transition duration-150 font-semibold shadow-md inline-flex items-center gap-2"
                                 >
                                     <svg
@@ -274,7 +250,7 @@ export default function EventShow({ event }) {
                                     Edit Event
                                 </Link>
                                 <Link
-                                    // href={route("events.destroy", eventData.id)}
+                                    // href={route("events.destroy", event.id)}
                                     method="delete"
                                     as="button"
                                     className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition duration-150 font-semibold shadow-md inline-flex items-center gap-2"

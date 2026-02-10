@@ -1,5 +1,5 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
 
 export default function EventAdmin({ events }) {
     const getStatusColor = (status) => {
@@ -23,19 +23,9 @@ export default function EventAdmin({ events }) {
         });
     };
 
-    const getParticipantPercentage = (current, max) => {
-        if (!max) return null;
-        return Math.round((current / max) * 100);
-    };
-
-    // Stats calculation
     const totalEvents = events.length;
     const activeEvents = events.filter((e) => e.status === "Active").length;
     const upcomingEvents = events.filter((e) => e.status === "Upcoming").length;
-    const totalParticipants = events.reduce(
-        (sum, e) => sum + e.participants,
-        0,
-    );
 
     return (
         <AuthenticatedLayout>
@@ -182,14 +172,14 @@ export default function EventAdmin({ events }) {
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                     <div className="flex gap-2">
                                                         <Link
-                                                            href={`/events/${event.id}`}
+                                                            href={route('events.show', event.id)}
                                                             className="text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-2 py-1 rounded font-semibold transition"
                                                             title="View Details"
                                                         >
                                                             View
                                                         </Link>
                                                         <Link
-                                                            href={`/events/${event.id}/edit`}
+                                                            href={route('events.edit', event.id)}
                                                             className="text-orange-600 hover:text-orange-800 hover:bg-orange-50 px-2 py-1 rounded font-semibold transition"
                                                             title="Edit Event"
                                                         >
@@ -204,10 +194,7 @@ export default function EventAdmin({ events }) {
                                                                     )
                                                                 ) {
                                                                     // Handle delete
-                                                                    console.log(
-                                                                        "Delete event:",
-                                                                        event.id,
-                                                                    );
+                                                                    router.delete(route('events.destroy', event.id))
                                                                 }
                                                             }}
                                                             className="text-red-600 hover:text-red-800 hover:bg-red-50 px-2 py-1 rounded font-semibold transition"
