@@ -211,17 +211,15 @@ export default function ProductAdmin({ products, total, available, soldout }) {
                                                     >
                                                         Edit
                                                     </Link>
-                                                    <Link
-                                                        href={route(
-                                                            "products.destroy",
-                                                            product.id,
-                                                        )}
-                                                        method="delete"
-                                                        as="button"
-                                                        className="text-red-600 hover:text-red-800 font-semibold hover:bg-red-50 px-3 py-1 rounded transition-all"
-                                                    >
-                                                        Delete
-                                                    </Link>
+                                            <Link
+    href={route("products.destroy", product.id)}
+    method="delete"
+    as="button"
+    onBefore={() => confirm('Apakah Anda yakin ingin menghapus product ini?')}
+    className="text-red-600 hover:text-red-800 font-semibold hover:bg-red-50 px-3 py-1 rounded transition-all"
+>
+    Delete
+</Link>
                                                 </div>
                                             </td>
                                         </tr>

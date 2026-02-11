@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->references('id')->on('products');
             $table->string('order_number')->unique();
             $table->string('full_name');
             $table->enum('status', ['pending', 'progress', 'completed', 'cancelled'])->default('pending');
