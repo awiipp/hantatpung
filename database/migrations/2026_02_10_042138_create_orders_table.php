@@ -22,6 +22,9 @@ return new class extends Migration
             $table->integer('quantity');
             $table->text('note')->nullable();
             $table->integer('total_estimate');
+            $table->foreignId('product_id')
+    ->constrained('products')
+    ->onDelete('cascade');
             $table->timestamps();
         });
     }

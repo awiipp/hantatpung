@@ -113,16 +113,24 @@ class ProductController extends Controller
         return redirect()->route('products.table');
     }
 
-    public function destroy($id)
-    {
-        $product = Product::find($id);
-
-        if ($product->image && Storage::disk('public')->exists($product->image)) {
-            Storage::disk('public')->delete($product->image);
+     public function destroy(Product $product)
+{
+    // Hapus orders terkait dulu
+    $product->orders()->delete();
+    
+    // Hapus gambar jika ada (versi lebih aman)
+    if ($product->image) {
+        $imagePath = $product->image;
+        
+        // Cek apakah file ada di storage
+        if (Storage::disk('public')->exists($imagePath)) {
+            Storage::disk('public')->delete($imagePath);
         }
-
-        $product->delete();
-
-        return redirect()->route('products.table');
     }
+    
+    // Hapus product
+    $product->delete();
+    
+    return redirect()->route('products.index')->with('success', 'Product berhasil dihapus');
+}
 }
