@@ -19,9 +19,11 @@
                  <div className="max-w-4xl mx-auto text-center">
                      <h1 className="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">Welcome to PawsCommerce</h1>
                      <p className="text-xl md:text-2xl mb-8 font-light">Segala Kebutuhan Hewan Kesayangan Anda</p>
+                      <Link href={route('products.index')}>
                      <button className="bg-white text-orange-500 px-8 py-4 rounded-full font-semibold hover:bg-orange-50 transition-all transform hover:scale-105 shadow-lg">
-                         Belanja Sekarang
-                     </button>
+                          Belanja Sekarang
+                        </button>
+                        </Link>
                  </div>
              </div>
  
@@ -72,25 +74,25 @@
                      
                      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                          <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2">
-                             <div className="text-5xl mb-4">🐕</div>
+                             <div className="text-5xl mb-4"></div>
                              <h3 className="font-bold text-lg text-gray-800 mb-2">Anjing</h3>
                              <p className="text-sm text-gray-500">Makanan & Aksesoris</p>
                          </div>
  
                          <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2">
-                             <div className="text-5xl mb-4">🐈</div>
+                             <div className="text-5xl mb-4"></div>
                              <h3 className="font-bold text-lg text-gray-800 mb-2">Kucing</h3>
                              <p className="text-sm text-gray-500">Makanan & Mainan</p>
                          </div>
  
                          <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2">
-                             <div className="text-5xl mb-4">🦜</div>
+                             <div className="text-5xl mb-4"></div>
                              <h3 className="font-bold text-lg text-gray-800 mb-2">Burung</h3>
                              <p className="text-sm text-gray-500">Kandang & Pakan</p>
                          </div>
  
                          <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2">
-                             <div className="text-5xl mb-4">🐠</div>
+                             <div className="text-5xl mb-4"></div>
                              <h3 className="font-bold text-lg text-gray-800 mb-2">Ikan</h3>
                              <p className="text-sm text-gray-500">Aquarium & Perlengkapan</p>
                          </div>

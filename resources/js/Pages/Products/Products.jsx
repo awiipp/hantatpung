@@ -40,54 +40,35 @@
                      </div>
  
                      {/* Filters */}
-                     <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-orange-100">
-                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                             {/* Category Filter */}
-                             <div>
-                                 <label className="block text-sm font-semibold text-gray-700 mb-3">
-                                     Product Category
-                                 </label>
-                                 <div className="flex flex-wrap gap-2">
-                                     {categories.map((category) => (
-                                         <button
-                                             key={category}
-                                             onClick={() => setSelectedCategory(category)}
-                                             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                                                 selectedCategory === category
-                                                     ? 'bg-orange-500 text-white shadow-md'
-                                                     : 'bg-orange-50 text-orange-700 hover:bg-orange-100 border border-orange-200'
-                                             }`}
-                                         >
-                                             {category}
-                                         </button>
-                                     ))}
-                                 </div>
-                             </div>
- 
-                             {/* Pet Type Filter */}
-                             <div>
-                                 <label className="block text-sm font-semibold text-gray-700 mb-3">
-                                     Pet Type
-                                 </label>
-                                 <div className="flex flex-wrap gap-2">
-                                     {petTypes.map((petType) => (
-                                         <button
-                                             key={petType}
-                                             onClick={() => setSelectedPetType(petType)}
-                                             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                                                 selectedPetType === petType
-                                                     ? 'bg-orange-500 text-white shadow-md'
-                                                     : 'bg-orange-50 text-orange-700 hover:bg-orange-100 border border-orange-200'
-                                             }`}
-                                         >
-                                             {petType}
-                                         </button>
-                                     ))}
-                                 </div>
-                             </div>
-                         </div>
-  
-                     </div>
+                     {/* Filters */}
+<div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-orange-100">
+    <div className="flex flex-col items-center gap-6">
+        {/* Category Filter */}
+        <div className="w-full max-w-3xl">
+            <label className="block text-sm font-semibold text-gray-700 mb-3 text-center">
+                Product Category
+            </label>
+            <div className="flex flex-wrap gap-2 justify-center">
+                {categories.map((category) => (
+                    <button
+                        key={category}
+                        onClick={() => setSelectedCategory(category)}
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                            selectedCategory === category
+                                ? 'bg-orange-500 text-white shadow-md'
+                                : 'bg-orange-50 text-orange-700 hover:bg-orange-100 border border-orange-200'
+                        }`}
+                    >
+                        {category}
+                    </button>
+                ))}
+            </div>
+        </div>
+
+        {/* Pet Type Filter */}
+        
+    </div>
+</div>
  
                      {/* Products Grid */}
                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -31,6 +31,7 @@ Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('pro
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
